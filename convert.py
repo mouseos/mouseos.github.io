@@ -25,7 +25,7 @@ def convert_markdown_to_html(input_file_path):
     with open(input_file_path, 'r', encoding='utf-8') as markdown_file:
         markdown_content = markdown_file.read()
         html_content = markdown2.markdown(markdown_content, extras=[
-                                          "tables", "fenced-code-blocks"])
+                                          "tables", "fenced-code-blocks","code-color","fenced-code-blocks","header-ids"])
         return html_content
 
 # 指定されたディレクトリ内のすべてのマークダウンファイルを変換
