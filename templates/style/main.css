@@ -32,6 +32,11 @@
         margin: 0;
     }
 
+    .logo {
+        font-size: 1.4em;
+        margin-left: 10px;
+    }
+
     footer {
         background-color: #4a4ac9 !important;
     }
