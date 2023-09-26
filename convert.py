@@ -2,6 +2,11 @@ import os
 import markdown2
 import re
 import datetime
+import pygments
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import HtmlFormatter
+
 def get_creation_date(path):
     date_format="%Y年%m月%d日"
     try:
@@ -41,8 +46,16 @@ def load_txt(path):
 def convert_markdown_to_html(input_file_path):
     with open(input_file_path, 'r', encoding='utf-8') as markdown_file:
         markdown_content = markdown_file.read()
-        html_content = markdown2.markdown(markdown_content, extras=[
-                                          "tables", "fenced-code-blocks","code-color","fenced-code-blocks","header-ids"])
+
+        # シンタックスハイライトを行うための設定
+        lexer = get_lexer_by_name("python", stripall=True)
+        formatter = HtmlFormatter(style="colorful")
+        code_highlighted = highlight(markdown_content, lexer, formatter)
+
+        # MarkdownをHTMLに変換
+        html_content = markdown2.markdown(
+            code_highlighted, extras=["tables", "fenced-code-blocks", "header-ids"])
+
         return html_content
 
 # 指定されたディレクトリ内のすべてのマークダウンファイルを変換
