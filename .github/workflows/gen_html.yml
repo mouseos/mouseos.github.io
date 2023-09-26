@@ -16,8 +16,8 @@ jobs:
         with:
           python-version: '3.x' # 使用するPythonバージョンを指定
 
-      - name: Install markdown2
-        run: pip install markdown2
+      - name: Install markdown2 pygments
+        run: pip install markdown2 pygments
 
       - name: Execute convert.py
         run: python convert.py
