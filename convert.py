@@ -51,10 +51,12 @@ def convert_markdown_files_in_directory(directory_path, max_depth=3):
                     # 先頭からドットを抜く
                     output_file_path_to_save = re.sub(
                         r'^\.', '', output_file_path).replace("\\", "/")
+                    output_file_path_to_save = re.sub(
+                        r'^\/', '', output_file_path_to_save)
                     html_list.append(output_file_path_to_save)
                     if ("articles" in output_file_path):
                         print("articles")
-                        nav = re.sub("""<link rel="stylesheet" href="/templates/style/main.css" type="text/css">""",
+                        nav = re.sub("""<link rel="stylesheet" href="./templates/style/main.css" type="text/css">""",
                                      """<link rel="stylesheet" href="../../templates/style/main.css" type="text/css">""", nav)
                         html_content = nav+"""<div class="col s12 l9 z-depth-1 article">""" + \
                             html_content+"</div>"+footer
@@ -106,4 +108,5 @@ for article in articles:
     <!--card終了-->
 """)
 article_html += footer
-print(article_html)
+with open("index.html", 'w', encoding='utf-8') as html_file:
+    html_file.write(article_html)
