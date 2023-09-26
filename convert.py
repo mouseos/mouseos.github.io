@@ -1,7 +1,23 @@
 import os
 import markdown2
 import re
+def get_creation_date(path):
+    date_format="%Y年%m月%d日"
+    try:
+        # ファイルが存在しない場合、エラーメッセージを返す
+        if not os.path.exists(path):
+            return "指定されたパスのファイルが存在しません"
 
+        # ファイルの作成日を取得
+        creation_time = os.path.getctime(path)
+        creation_date = datetime.datetime.fromtimestamp(creation_time)
+
+        # 指定された形式で日付をフォーマット
+        formatted_date = creation_date.strftime(date_format)
+        
+        return formatted_date
+    except Exception as e:
+        return f"エラー: {e}"
 
 def marge_htmls(htmls):
     tmp_html = ""
@@ -48,6 +64,8 @@ def convert_markdown_files_in_directory(directory_path, max_depth=3):
                     # .md を .html に変更して保存
                     output_file_path = os.path.splitext(
                         input_file_path)[0] + '.html'
+                    #作成日を取得
+                    creation_date=get_creation_date(output_file_path)
                     # 先頭からドットを抜く
                     output_file_path_to_save = re.sub(
                         r'^\.', '', output_file_path).replace("\\", "/")
@@ -58,10 +76,10 @@ def convert_markdown_files_in_directory(directory_path, max_depth=3):
                         print("articles")
                         nav = re.sub("""<link rel="stylesheet" href="./templates/style/main.css" type="text/css">""",
                                      """<link rel="stylesheet" href="../../templates/style/main.css" type="text/css">""", nav)
-                        html_content = nav+"""<div class="col s12 l9 z-depth-1 article">
+                        html_content = nav+f"""<div class="col s12 l9 z-depth-1 article">
                         <h1>記事タイトル</h1>
                     <p class="post-info">
-                        <i class="material-icons">date_range</i> 投稿日: 2023-09-26 |
+                        <i class="material-icons">date_range</i> 投稿日: {creation_date} |
                         <i class="material-icons">person</i> 投稿者: Yuu
                     </p>
                     <hr>
