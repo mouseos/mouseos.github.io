@@ -1,0 +1,79 @@
+    .card {
+        border-radius: 2px;
+        background-color: #e0e0e0;
+        margin: 15px;
+    }
+
+    .card .card-content {
+        background-color: white;
+    }
+
+    .card-action {
+        background-color: #e0e0e0 !importantk;
+    }
+
+    button.btn.waves-effect.waves-light {
+        background-color: #4a4ac9;
+        border-radius: 2px;
+    }
+
+    .sidenav li>a {
+        border-radius: 0;
+    }
+
+    .sidenav li>a>.material-icons,
+    .sidenav li>a>.material-symbols-outlined,
+    .sidenav li>a>.material-symbols-rounded,
+    .sidenav li>a>.material-symbols-sharp {
+        color: #4a4ac9;
+    }
+
+    .sidenav li>a {
+        margin: 0;
+    }
+
+    footer {
+        background-color: #4a4ac9 !important;
+    }
+
+    .page-footer .footer-copyright,
+    .page-footer .footer-copyright a {
+        background-color: initial !important;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .side_menu {
+        margin: 15px;
+        padding: 24px;
+    }
+
+
+
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: initial !important;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.6em;
+    }
+
+    h4 {
+        font-size: 1.4em;
+    }
