@@ -58,8 +58,16 @@ def convert_markdown_files_in_directory(directory_path, max_depth=3):
                         print("articles")
                         nav = re.sub("""<link rel="stylesheet" href="./templates/style/main.css" type="text/css">""",
                                      """<link rel="stylesheet" href="../../templates/style/main.css" type="text/css">""", nav)
-                        html_content = nav+"""<div class="col s12 l9 z-depth-1 article-content">""" + \
-                            html_content+"</div>"+footer
+                        html_content = nav+"""<div class="col s12 l9 z-depth-1 article">
+                        <h1>記事タイトル</h1>
+                    <p class="post-info">
+                        <i class="material-icons">date_range</i> 投稿日: 2023-09-26 |
+                        <i class="material-icons">person</i> 投稿者: Yuu
+                    </p>
+                    <hr>
+                    <article>
+                        """ + \
+                            html_content+"</article></div>"+footer
 
                     with open(output_file_path, 'w', encoding='utf-8') as html_file:
                         html_file.write(html_content)
