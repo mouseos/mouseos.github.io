@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<!--main.css読み込み-->
+<link rel="stylesheet" href="../../templates/style/main.css" type="text/css">
+
+<body>
+    <!--nav開始-->
+    <div class="navbar-fixed">
+        <nav class="nav-extended" style="background-color:#13b6bf;">
+            <div class="nav-wrapper"> <a href="#" class="logo">Mouse soft</a> <a href="#" data-target="mobile-demo"
+                    class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/index.html">トップページ</a></li>
+                    <li><a href="/about.html">このサイトについて</a></li>
+                    <li><a href="/service.html">提供中のサービス</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/index.html"><i class="material-icons">home</i>トップページ</a></li>
+        <li><a href="/about.html"><i class="material-icons">info</i>このサイトについて</a></li>
+        <li><a href="/service.html"><i class="material-icons">attach_money</i>提供中のサービス</a></li>
+    </ul>
+    <!--nav終了-->
+    <!--記事本文ページ開始-->
+    <main>
+        <div class="container">
+            <div class="row"><div class="col s12 l9 z-depth-1 article"><h1>An h1 header</h1>
+
+<p>Paragraphs are separated by a blank line.</p>
+
+<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code>monospace</code>. Itemized lists
+look like:</p>
+
+<ul>
+<li>this one</li>
+<li>that one</li>
+<li>the other one</li>
+</ul>
+
+<p>Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.</p>
+
+<blockquote>
+  <p>Block quotes are
+  written like so.</p>
+  
+  <p>They can span multiple paragraphs,
+  if you like.</p>
+</blockquote>
+
+<p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺</p>
+
+<h2>An h2 header</h2>
+
+<p>Here's a numbered list:</p>
+
+<ol>
+<li>first item</li>
+<li>second item</li>
+<li>third item</li>
+</ol>
+
+<p>Note again how the actual text starts at 4 columns in (4 characters
+from the left side). Here's a code sample:</p>
+
+<pre><code># Let me re-iterate ...
+for i in 1 .. 10 { do-something(i) }
+</code></pre>
+
+<p>As you probably guessed, indented 4 spaces. By the way, instead of
+indenting the block, you can use delimited blocks, if you like:</p>
+
+<p>~~~
+define foobar() {
+    print "Welcome to flavor country!";
+}
+~~~</p>
+
+<p>(which makes copying &amp; pasting easier). You can optionally mark the
+delimited block for Pandoc to syntax highlight it:</p>
+
+<p>~~~python
+import time</p>
+
+<h1>Quick, count to ten!</h1>
+
+<p>for i in range(10):
+    # (but not <em>too</em> quick)
+    time.sleep(0.5)
+    print i
+~~~</p>
+
+<h3>An h3 header</h3>
+
+<p>Now a nested list:</p>
+
+<ol>
+<li><p>First, get these ingredients:</p>
+
+<ul>
+<li>carrots</li>
+<li>celery</li>
+<li>lentils</li>
+</ul></li>
+<li><p>Boil some water.</p></li>
+<li><p>Dump everything in the pot and follow
+this algorithm:</p>
+
+<pre><code>find wooden spoon
+uncover pot
+stir
+cover pot
+balance wooden spoon precariously on pot handle
+wait 10 minutes
+goto first step (or shut off burner when done)
+</code></pre>
+
+<p>Do not bump wooden spoon or it will fall.</p></li>
+</ol>
+
+<p>Notice again how text always lines up on 4-space indents (including
+that last line which continues item 3 above).</p>
+
+<p>Here's a link to <a href="http://foo.bar">a website</a>, to a <a href="local-doc.html">local
+doc</a>, and to a <a href="#an-h2-header">section heading in the current
+doc</a>. Here's a footnote [^1].</p>
+
+<p>Tables can look like this:</p>
+
+<p>size  material      color</p>
+
+<hr />
+
+<p>9     leather       brown
+10    hemp canvas   natural
+11    glass         transparent</p>
+
+<p>Table: Shoes, their sizes, and what they're made of</p>
+
+<p>(The above is the caption for the table.) Pandoc also supports
+multi-line tables:</p>
+
+<hr />
+
+<p>keyword   text</p>
+
+<hr />
+
+<p>red       Sunsets, apples, and
+          other red or reddish
+          things.</p>
+
+<p>green     Leaves, grass, frogs
+          and other things it's
+          not easy being.</p>
+
+<hr />
+
+<p>A horizontal rule follows.</p>
+
+<hr />
+
+<p>Here's a definition list:</p>
+
+<p>apples
+  : Good for making applesauce.
+oranges
+  : Citrus!
+tomatoes
+  : There's no "e" in tomatoe.</p>
+
+<p>Again, text is indented 4 spaces. (Put a blank line between each
+term/definition pair to spread things out more.)</p>
+
+<p>Here's a "line block":</p>
+
+<p>| Line one
+|   Line too
+| Line tree</p>
+
+<p>and images can be specified like so:</p>
+
+<p><img src="example-image.jpg" alt="example image" title="An exemplary image" /></p>
+
+<p>Inline math equations go in like so: $\omega = d\phi / dt$. Display
+math should get its own line and be put in in double-dollarsigns:</p>
+
+<p>$$I = \int \rho R^{2} dV$$</p>
+
+<p>And note that you can backslash-escape any punctuation characters
+which you wish to be displayed literally, ex.: `foo`, *bar*, etc.</p>
+</div><div class="col s12 l3 z-depth-1 side_menu">
+    <h4>このサイトについて</h4>
+    <p>このサイトはこんなサイトです。こんな記事があります。</p>
+</div>
+</div>
+</div>
+</main>
+<!--記事本文ページ終了-->
+<!--footer開始-->
+<footer class="page-footer">
+    <div class="container">
+        <!--<div class="row">
+        <div class="l6 s12">
+          <h5>Footer Content</h5>
+          <p>You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="l4 offset-l8 s12">
+          <h5>Links</h5>
+          <ul>
+            <li><a href="#!">Link 1</a></li>
+            <li><a href="#!">Link 2</a></li>
+            <li><a href="#!">Link 3</a></li>
+            <li><a href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>-->
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2023 Copyright Mouse soft
+        </div>
+    </div>
+</footer>
+<!--footer終了-->
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/js/materialize.min.js"></script>
+<!--初期化コード-->
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        var options = {};
+        var instances = M.Sidenav.init(elems, options);
+    });
+</script>
+</body>
+
+</html>
