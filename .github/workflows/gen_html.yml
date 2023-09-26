@@ -1,0 +1,31 @@
+name: Convert and Push
+
+on:
+  push:
+    paths:
+      - 'convert.py' # 変更があった場合にトリガー
+
+jobs:
+  convert_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # 使用するPythonバージョンを指定
+
+      - name: Install markdown2
+        run: pip install markdown2
+
+      - name: Execute convert.py
+        run: python convert.py
+
+      - name: Push changes to repo
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Convert md to html"
+          branch: main
