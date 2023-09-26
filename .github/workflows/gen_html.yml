@@ -2,8 +2,6 @@ name: Convert and Push
 
 on:
   push:
-    paths:
-      - 'convert.py' # 変更があった場合にトリガー
 
 jobs:
   convert_and_push:
