@@ -52,13 +52,13 @@ Markdownは、簡単にテキストをフォーマットするための軽量マ
 5. **画像**:
 
    ```markdown
-   ![OpenAIロゴ](https://www.openai.com/logo.png)
+   ![Googleロゴ](https://www.google.com/logos/doodles/2023/googles-25th-birthday-6753651837110114-6752733080610509-cst.gif)
    ```
 
    表示例:
-   ![OpenAIロゴ](https://www.openai.com/logo.png)
+   ![Googleロゴ](https://www.google.com/logos/doodles/2023/googles-25th-birthday-6753651837110114-6752733080610509-cst.gif)
 
-6. **引用**:
+7. **引用**:
 
    ```markdown
    > これは引用文です。
@@ -67,7 +67,7 @@ Markdownは、簡単にテキストをフォーマットするための軽量マ
    表示例:
    > これは引用文です。
 
-7. **コード**:
+8. **コード**:
 
    インラインコード:
 
@@ -96,7 +96,7 @@ Markdownは、簡単にテキストをフォーマットするための軽量マ
        print("Hello, world!")
    ```
 
-8. **表** :
+9. **表** :
 
    ```markdown
    | ヘッダー1 | ヘッダー2 |
