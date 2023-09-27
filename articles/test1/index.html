@@ -39,55 +39,140 @@
             <div class="row"><div class="col s12 l9 z-depth-1 article">
                         <h1>記事タイトル</h1>
                     <p class="post-info">
-                        <i class="material-icons">date_range</i> 投稿日: 2023年09月26日 |
+                        <i class="material-icons">date_range</i> 投稿日: 2023年09月27日 |
                         <i class="material-icons">person</i> 投稿者: Yuu
                     </p>
                     <hr>
                     <article>
-                        <h1 id="-1">これは大見出しです</h1>
+                        <p>Markdownは、簡単にテキストをフォーマットするための軽量マークアップ言語です。以下は基本的なMarkdown記法の説明です：</p>
 
-<p>これはテキストです。</p>
-
-<h2 id="-2">これは中見出しです</h2>
-
-<p>これはテキストです。</p>
-
-<h3 id="-3">これは小見出しです</h3>
-
-<p>これはテキストです!!</p>
+<ol>
+<li><p><strong>見出し</strong>:</p>
 
 <div class="codehilite">
-<pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+<pre><span></span><code><span class="gh"># これは一番大きな見出しです</span>
+<span class="gu">## これは次のレベルの見出しです</span>
 </code></pre>
 </div>
 
-<table>
-<thead>
-<tr>
-  <th>項目1</th>
-  <th>項目2</th>
-  <th>項目3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>内容1</td>
-  <td>内容2</td>
-  <td>内容3</td>
-</tr>
-<tr>
-  <td>内容4</td>
-  <td>内容5</td>
-  <td>内容6</td>
-</tr>
-<tr>
-  <td>内容7</td>
-  <td>内容8</td>
-  <td>内容9</td>
-</tr>
-</tbody>
-</table>
+<p>表示例:</p>
+
+<h1 id="-1">これは一番大きな見出しです</h1>
+
+<h2 id="-2">これは次のレベルの見出しです</h2></li>
+<li><p><strong>リスト</strong>:</p>
+
+<div class="codehilite">
+<pre><span></span><code>番号付きリスト:
+<span class="k">1.</span> アイテム1
+<span class="k">2.</span> アイテム2
+
+箇条書きリスト:
+<span class="k">-</span><span class="w"> </span>アイテムA
+<span class="k">-</span><span class="w"> </span>アイテムB
+</code></pre>
+</div>
+
+<p>表示例:
+番号付きリスト:</p>
+
+<ol>
+<li>アイテム1</li>
+<li>アイテム2</li>
+</ol>
+
+<p>箇条書きリスト:</p>
+
+<ul>
+<li>アイテムA</li>
+<li>アイテムB</li>
+</ul></li>
+<li><p><strong>強調</strong>:</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="ge">*これは強調されたテキスト*</span>
+</code></pre>
+</div>
+
+<p>表示例:
+<em>これは強調されたテキスト</em></p></li>
+<li><p><strong>リンク</strong>:</p>
+
+<div class="codehilite">
+<pre><span></span><code>[<span class="nt">Google</span>](<span class="na">https://www.google.com</span>)
+</code></pre>
+</div>
+
+<p>表示例: <a href="https://www.google.com">Google</a></p></li>
+<li><p><strong>画像</strong>:</p>
+
+<div class="codehilite">
+<pre><span></span><code>![<span class="nt">OpenAIロゴ</span>](<span class="na">https://www.openai.com/logo.png</span>)
+</code></pre>
+</div>
+
+<p>表示例:
+<img src="https://www.openai.com/logo.png" alt="OpenAIロゴ" /></p></li>
+<li><p><strong>引用</strong>:</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="k">&gt; </span><span class="ge">これは引用文です。</span>
+</code></pre>
+</div>
+
+<p>表示例:</p>
+
+<blockquote>
+  <p>これは引用文です。</p>
+</blockquote></li>
+<li><p><strong>コード</strong>:</p>
+
+<p>インラインコード:</p>
+
+<div class="codehilite">
+<pre><span></span><code>インラインコード: \`print(&quot;Hello, world!&quot;)\`
+</code></pre>
+</div>
+
+<p>表示例: インラインコード: <code>print("Hello, world!")</code></p>
+
+<p>コードブロック:</p>
+
+<pre>
+<code>
+コードブロック:
+<div class="codehilite">
+<pre><span></span><code><span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+
+</code>
+</pre>
+
+<p>表示例:</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</code></pre>
+</div></li>
+<li><p><strong>表</strong> :</p>
+
+<div class="codehilite">
+<pre><span></span><code>| ヘッダー1 | ヘッダー2 |
+| -------- | -------- |
+| セル1    | セル2    |
+| セル3    | セル4    |
+</code></pre>
+</div>
+
+<p>表示例:
+| ヘッダー1 | ヘッダー2 |
+| -------- | -------- |
+| セル1    | セル2    |
+| セル3    | セル4    |</p></li>
+</ol>
 </article></div><div class="col s12 l3 z-depth-1 side_menu">
     <h4>このサイトについて</h4>
     <p>このサイトはこんなサイトです。こんな記事があります。</p>
