@@ -2,476 +2,476 @@
   "response_data": {
     "system_version": [
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "6b9e93eb7ac34909856c3e7b2c8e28d7",
         "package_name": "com.justsystems.smilehs.home.helper2",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 7910455,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9020026/HomeHelper2-afterKc1-release.apk",
+        "version_code": 9020026,
+        "version_name": "9.20.0.26"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "13a801d7f523e83f87cfbf8d2a8b7417",
         "package_name": "com.justsystems.smilehs.home",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 39292805,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9025002/SmileHSHome-afterKc1-release.apk",
+        "version_code": 9025002,
+        "version_name": "9.25.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "3851f3ca25e67fb4b42f3a92a9fe07a1",
         "package_name": "com.justsystems.smilehs.aws",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 5932420,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9023002/AwsAccessService-afterKc1-release.apk",
+        "version_code": 9023002,
+        "version_name": "9.23.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "e9cdc729ced84321909e71fa300f10ba",
         "package_name": "com.justsystems.smilehs.settings",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 3186200,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9018003/SmileSettingsManager-afterKc1-release.apk",
+        "version_code": 9018003,
+        "version_name": "9.18.0.3"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "7dc034570faef4527385adae54a79fba",
         "package_name": "com.justsystems.smilehs.teacherapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 6632998,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9025002/teacherApp-release.apk",
+        "version_code": 9025002,
+        "version_name": "9.25.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "e8ea13b8064a8f04dd3bffbe5c4cf572",
         "package_name": "air.com.justsystems.smilehs.work.recitalplayer",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 10675385,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/8012002/WorkRecitalPlayer.apk",
+        "version_code": 8012002,
+        "version_name": "8.12.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "c84b2db955cc0eef78a9c1950cb61fa4",
         "package_name": "com.justsystems.smilehs.recitalplayer",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 5274115,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9020026/recitalPlayer-release.apk",
+        "version_code": 9020026,
+        "version_name": "9.20.0.26"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "3a5f734db76a475ae7eb3d24727bf747",
         "package_name": "air.com.justsystems.smilehs.workswfloader",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
+        "size": 21308487,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9000000/WorkSwfLoader.apk",
         "version_code": 9000000,
-        "version_name": "9.0.0"
+        "version_name": "9.0.0.0"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "ca8e24365d21a7cf224cc08a4cd01cf2",
         "package_name": "com.justsystems.smilehs.workhtmlloader",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 35876515,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/WorkHtmlLoader-sho-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2s"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "5129ad041a9830bc39939c7f343820c8",
         "package_name": "com.android.webview",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 69830804,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/372913650/WebView.apk",
+        "version_code": 372913650,
+        "version_name": "74.0.3729.136"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "8c91103fd3effe31ba8eb90f5fb806b2",
         "package_name": "com.justsystems.smilehs.movieplayer",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 7048810,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9020026/MoviePlayer-afterKc1-release.apk",
+        "version_code": 9020026,
+        "version_name": "9.20.0.26"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "9117ccef5d2a63f7a99d486c9d941871",
         "package_name": "com.justsystems.smilehs.drill.calc",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 15710565,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/CalcDrill-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "a5e0706418cffac03a1f09e05ba6a6ca",
         "package_name": "com.justsystems.smilehs.collectioncard",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 10908524,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9020001/collectionCard-release.apk",
+        "version_code": 9020001,
+        "version_name": "9.20.0.1"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "a135bc51d31def7dbd2aaba7b4a0357d",
         "package_name": "com.justsystems.smilehs.drill.kanken2",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 19706689,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/KankenDrill2-sho-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2s"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "02a4e2fea5694c56c0fc2d9278a5314b",
         "package_name": "com.justsystems.smilehs.studyapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 19667381,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9025002/StudyApp-afterKc1-release.apk",
+        "version_code": 9025002,
+        "version_name": "9.25.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "f6ca912a4770f7fd5d773c45a737038e",
         "package_name": "com.justsystems.smilehs.studyapp2",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 24639851,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/StudyApp2-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "bc8f501f68d41db541d56da3ce91599d",
         "package_name": "com.justsystems.smilehs.study.english",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 19976487,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9025002/EnglishApp-afterKc1-release.apk",
+        "version_code": 9025002,
+        "version_name": "9.25.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "bf02605f14284e434a5a735bc2319603",
         "package_name": "com.justsystems.smilehs.examportal",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 9117036,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9020026/ExamPortal-afterKc1-release.apk",
+        "version_code": 9020026,
+        "version_name": "9.20.0.26"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "12d59aba463b1e8a40c723d7549a8f66",
         "package_name": "com.justsystems.smilehs.licenseviewer",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 1904798,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/LicenseViewer-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "afe123379cae1c990a5d321e9ea56a56",
         "package_name": "com.justsystems.smilehs.launcher",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 1555552,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/4000043/SimpleLauncher-afterKc1-release.apk",
+        "version_code": 4000043,
+        "version_name": "4.0.0"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "04cc4445a0576e210612c6d6bbd6db8f",
         "package_name": "com.justsystems.smilehs.album_app",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 7055519,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/SmileHSAlbumApp-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "dac9f36161db899ca990adf89f9033b0",
         "package_name": "com.justsystems.smilehs.camera_app",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 8279833,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9020026/SmileHSCameraApp-afterKc1-release.apk",
+        "version_code": 9020026,
+        "version_name": "9.20.0.26"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "81b58c4035a6c1b51df517adfac39c51",
         "package_name": "com.justsystems.smilehs.report",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 11495961,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/SmileHSReport-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "ed209a4c4798964f049a68647af3f5cf",
         "package_name": "com.justsystems.smilehs.wallpaper_app",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 14706796,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/SmileHSWallpaperApp-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "f45f3c5110cb001ee1c3983a561bbe84",
         "package_name": "com.justsystems.smilehs.systemupdater",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 5374677,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9020026/SystemUpdater-afterKc1-release.apk",
+        "version_code": 9020026,
+        "version_name": "9.20.0.26"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "9604bdbe428f8cf4809fadadbfe6ae35",
         "package_name": "com.justsystems.smilehs.keyboard",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 2851397,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9018003/SmileHSKeyboard-afterKc1-release.apk",
+        "version_code": 9018003,
+        "version_name": "9.18.0.3"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "1d99d72b0e35506070ef3d9131d21e98",
         "package_name": "com.justsystems.smilehs.ime",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 9123382,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/SmileHSIME-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "eb9e290e210fdebe9ecb6baa446bde19",
         "package_name": "com.justsystems.smilehs.talk",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 8364506,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/SmileHSTalk-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "4adfb7ce007155b19b175a75e3c38a41",
         "package_name": "com.justsystems.smilehs.books",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 5661048,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/SmileBooks-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "042c4535d6cc4e43f7b45f217593dfa0",
         "package_name": "air.com.justsystems.smilehs.kanjiworkapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
+        "size": 14773845,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9000000/KanjiWork.apk",
         "version_code": 9000000,
-        "version_name": "9.0.0"
+        "version_name": "9.0.0.0"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "1c353b5356e2d54723b6e3301bfa1234",
         "package_name": "com.justsystems.smilehs.kanjicollection",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 12477349,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/KanjiCollection-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "8c9f44664290cd9aeaf43eee0dfa852c",
         "package_name": "com.justsystems.smilehs.hiraganacollection",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 16043169,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9021003/HiraganaCollection-afterKc1-release.apk",
+        "version_code": 9021003,
+        "version_name": "9.21.0.3"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "fb7c25cb3039b4623665ddb6351224fa",
         "package_name": "com.justsystems.smilehs.study.kanji",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 18023367,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/StudyKanjiApp-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "e589cf735258033d33071ce7aaba415d",
         "package_name": "com.justsystems.smilehs.research.browser",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 4793604,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9020026/SmileResearchBrowser-afterKc1-release.apk",
+        "version_code": 9020026,
+        "version_name": "9.20.0.26"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "96795d6fd3924073978115f73e202ac4",
         "package_name": "com.justsystems.smilehs.avatar",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 10130984,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9025002/AvatarMaker-afterKc1-release.apk",
+        "version_code": 9025002,
+        "version_name": "9.25.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "eeaedd0e83e72c9ba04f23387541b52b",
         "package_name": "com.justsystems.smilehs.award",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 6789561,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/AwardStage-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "abd9d71a05c58041d45f9bcaae6e6fca",
         "package_name": "com.justsystems.smilehs.questionnaireapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 7799514,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9025002/QuestionnaireApp-afterKc1-release.apk",
+        "version_code": 9025002,
+        "version_name": "9.25.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "73d929d8d2a494a25d72514b027af5fd",
         "package_name": "com.justsystems.smilehs.synchronizer",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 4964016,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9024002/Synchronizer-afterKc1-release.apk",
+        "version_code": 9024002,
+        "version_name": "9.24.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "e292b6c9922aa74309656faed6299c44",
         "package_name": "air.A7c92sansu",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 14772407,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/8012002/Taisen25masu.apk",
+        "version_code": 8012002,
+        "version_name": "8.12.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "2e8053322da87f2cb42c09083eacadec",
         "package_name": "com.justsystems.smilehs.versions",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 8933,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/9025002/Versions-afterKc1-release.apk",
+        "version_code": 9025002,
+        "version_name": "9.25.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "816132dfef44a675828f554b17d7099f",
         "package_name": "com.justsystems.common.ndrill",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 46535374,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/1013100/nDrill-sho-release.apk",
+        "version_code": 1013100,
+        "version_name": "1.13.1.0s"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "bc0fba3f48bf072f910afcdad73167b0",
         "package_name": "com.justsystems.smilehsjh.ctservice",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 4109345,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030007/ContentsTransferService.apk",
+        "version_code": 7030007,
+        "version_name": "7.30.7"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "c3c86ea762fe082ace471c8ca867d30b",
         "package_name": "com.justsystems.smilehsjh.courseapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 12162489,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030006/CourseApp.apk",
+        "version_code": 7030006,
+        "version_name": "7.30.6"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "0d79a7f261d45825a5c1a7f43b277ff8",
         "package_name": "com.justsystems.smilehsjh.drillapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 16047351,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030006/DrillApp.apk",
+        "version_code": 7030006,
+        "version_name": "7.30.6"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "233d0867ad3eed9fe2b1963731b8c035",
         "package_name": "com.justsystems.smilehs.google.analytics.service",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 3892102,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/2010000/GoogleAnalyticsService.apk",
+        "version_code": 2010000,
+        "version_name": "2.10.0"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "77af798e80f44bd04a3d582dcb1e7da8",
         "package_name": "com.justsystems.smilehsjh.moviecourseapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 4686352,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030009/MovieCourseApp.apk",
+        "version_code": 7030009,
+        "version_name": "7.30.9"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "eaaeb1a7a0298d44401a73210ecf2b21",
         "package_name": "com.justsystems.smilehsjh.personaltrainerservice",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 3601779,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030006/PersonalTrainerService.apk",
+        "version_code": 7030006,
+        "version_name": "7.30.6"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "d9d2f8e32331eb2ec04b50f892e5b6cb",
         "package_name": "com.justsystems.smilehsjh.portal",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 29779666,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7049000/Portal.apk",
+        "version_code": 7049000,
+        "version_name": "7.49.0"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "89defb5e0454df070555187ee27df1fa",
         "package_name": "com.justsystems.smilehsjh.studyapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 15197885,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030006/StudyApp.apk",
+        "version_code": 7030006,
+        "version_name": "7.30.6"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "6b1da43ec8d934c75632a3e0081c56e9",
         "package_name": "com.justsystems.smilehsjh.trainingcourseapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 6410596,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030006/TrainingCourseApp.apk",
+        "version_code": 7030006,
+        "version_name": "7.30.6"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "67d9d2f8f695876fa27cd9951a12cf0a",
         "package_name": "air.com.justsystems.smilehsjh.workswfloader",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 16702586,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/3000002/ChuWorkSwfLoader.apk",
+        "version_code": 3000002,
+        "version_name": "3.0.0.2"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "274470a0758cda6298860b50e9327844",
         "package_name": "air.com.justsystems.smilehs.kanjiworkappjh",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 23472661,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/3000000/KanjiAppJhWork.apk",
+        "version_code": 3000000,
+        "version_name": "3.0.0.0"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "b16d11fae0fb410f03d8001f275c8e0f",
         "package_name": "com.justsystems.smilehsjh.kanjistudy",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 19953510,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030009/StudyKanjiApp.apk",
+        "version_code": 7030009,
+        "version_name": "7.30.9"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "ea2751f52e76dbcbd3dd9ad55268b3ba",
         "package_name": "air.com.justsystems.smilehsjh.eigotangowork",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 30414394,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/2000001/EigoTangoWork.apk",
+        "version_code": 2000001,
+        "version_name": "2.0.0.1"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "58e911b8d16b6ce2b94cd792d1cb7e0b",
         "package_name": "com.justsystems.smilehsjh.eikencourseapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 5032111,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030006/EikenCourseApp.apk",
+        "version_code": 7030006,
+        "version_name": "7.30.6"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "a59a98e59b785946e396b6cbfe150e16",
         "package_name": "com.justsystems.smilehsjh.eikenportalapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 7523415,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030006/EikenPortalApp.apk",
+        "version_code": 7030006,
+        "version_name": "7.30.6"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "a2c0b65820d7e1775dbbeb4d0223b7eb",
         "package_name": "com.justsystems.smilehsjh.entranceexamstudyapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 16712598,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030010/EntranceExamStudyApp.apk",
+        "version_code": 7030010,
+        "version_name": "7.30.10"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "cc24f5dd06fb00f33bb87828b652a386",
         "package_name": "com.justsystems.smilehsjh.memoryapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 20207443,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/7030006/MemoryApp.apk",
+        "version_code": 7030006,
+        "version_name": "7.30.6"
       },
       {
-        "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
+        "md5sum": "4d09bc980c8d1d9cdd8ae5e3933fe929",
         "package_name": "com.justsystems.smilehsyou.youcourseapp",
-        "size": "10975531",
-        "uri": "https://novalauncher.com/apk/NovaLauncher_6.2.19.apk",
-        "version_code": 9000000,
-        "version_name": "9.0.0"
+        "size": 126937497,
+        "uri": "https://d15ze2y2hx4s9h.cloudfront.net/smileapps2/10.0.0/4110000/YouCourseApp.apk",
+        "version_code": 4110000,
+        "version_name": "4.11.0.0"
       },
       {
         "md5sum": "647d6fc4b3d7a658f5691c3dc379c463",
