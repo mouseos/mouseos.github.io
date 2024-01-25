@@ -18,5 +18,40 @@ settings
     <a href="tel:0000000">tel:0000000</a>
     <h1>mailto:</h1>
     <a href="mailto:hello@example.com?subject=subject">send email</a>
+    <h1>file:</h1>
+    <a href="file:///sdcard/">file:///sdcard/</a>
+    <h1>navigator.share</h1>
+    <button id="shareButton">共有する</button>
+    <h1>input time</h1>
+    <label for="timePicker">時間を選択してください:</label>
+<input type="time" id="timePicker" name="timePicker">
+    <h1>input color</h1>
+    <label for="colorPicker">カラーを選択してください:</label>
+<input type="color" id="colorPicker" name="colorPicker">
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const shareButton = document.getElementById('shareButton');
+
+  if (navigator.share) {
+    shareButton.addEventListener('click', async function () {
+      try {
+        await navigator.share({
+          title: '共有するタイトル',
+          text: '共有するテキスト',
+          url: '共有するURL'
+        });
+        console.log('共有が成功しました');
+      } catch (error) {
+        console.error('共有に失敗しました', error);
+      }
+    });
+  } else {
+    // navigator.shareがサポートされていない場合の代替処理
+    shareButton.style.display = 'none';
+    alert('お使いのブラウザは共有機能をサポートしていません。');
+  }
+});
+</script>
   </body>
 </html>
