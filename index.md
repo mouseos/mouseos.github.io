@@ -1,3 +1,8 @@
+---
+layout: default
+title: ゆうのトップページ
+---
+
 # 運営サイト、サービス
 
 > [!NOTE]
