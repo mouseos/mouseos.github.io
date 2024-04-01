@@ -5,7 +5,10 @@
 誰もが番組を持つことができる「みんなが参加できる放送局」を目指して放送をします。
 
 最新情報はTwitterで順次公開していきます。
-Twitter https://twitter.com/scfm888　（現 インターネット放送局Sapporo City FMアカウント）
+Twitter 
+https://twitter.com/scfm888
+（現 インターネット放送局Sapporo City FMアカウント）
+
 [![Twitter](img/minano-pr1.png)](https://twitter.com/scfm888)
 
 ## mousesoft
