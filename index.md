@@ -40,8 +40,9 @@ c5021-ad12-47a5-9211-22bae61de1db/i/5610567/8d6ac339-d398-40f0-b3f1-c286d34bc71b
 
 
 ## SmileTabLabo
-主にAndroid端末の改造、修理について研究しているwiki、dsicordサーバーです。
+主にAndroid端末の改造、修理について研究しているwiki、discordサーバーです。
 改造と修理代行も受け付けております。
+ソフトウェア専門のためハードウェアの故障（画面割れなど）は対象外です。
 
 [トップページ](https://wiki3.jp/SmileTabLabo)
 
