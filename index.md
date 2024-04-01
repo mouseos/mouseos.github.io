@@ -1,4 +1,13 @@
 # 運営サイト、サービス
+## みんなの放送局　（現Sapporo City FM）
+主にネット上で活動しているインターネットラジオ局です。
+24時間ストリーミング放送と一部公共施設内で放送を行う予定です。
+誰もが番組を持つことができる「みんなが参加できる放送局」を目指して放送をします。
+
+最新情報はTwitterで順次公開していきます。
+Twitter https://twitter.com/scfm888　（現 インターネット放送局Sapporo City FMアカウント）
+[![Twitter](img/minano-pr1.png)](https://twitter.com/scfm888)
+
 ## mousesoft
 実際のテレビ、ラジオ局で使用されているものを元にした配信者向けソフトを販売中です。
 ### 【OBS用】 時計＆天気　インフォバー
@@ -20,12 +29,7 @@
 [![配信用　全自動音量・音質調整ソフトRadiMod audio processor](https://s2.booth.pm/77cc5021-ad12-47a5-9211-22bae61de1db/i/4524861/3f2708b0-2edb-4728-b89b-8b9005546b1c_base_resized.jpg)](https://mousesoft.booth.pm/items/4524861)
 
 https://mousesoft.booth.pm
-## みんなの放送局　（現Sapporo City FM）
-主にネット上で活動しているインターネットラジオ局です。
-24時間ストリーミング放送と一部公共施設内で放送を行う予定です。
-誰もが番組を持つことができる「みんなが参加できる放送局」を目指して放送をします。
 
-Twitter https://twitter.com/scfm888　（現 インターネット放送局Sapporo City FMアカウント）
 
 ## SmileTabLabo
 主にAndroid端末の改造、修理について研究しているwiki、dsicordサーバーです。
