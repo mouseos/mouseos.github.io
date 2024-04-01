@@ -1,3 +1,41 @@
+# プロフィール
+## 名前
+ゆう
+## 誕生日
+2003/07/26
+## 大学
+北海道情報大
+## 資格
+ITパスポート
+基本情報技術者試験は勉強中
+## 受賞歴
+### 北海道情報大学プログラミングコンテスト2022 ラジャマンガラ工科大学国際プログラミングコンテスト
+最優秀賞
+音声自動調整ソフト　「RadiMod」
+
+### 北海道情報大学プログラミングコンテスト2023
+最優秀賞
+気象情報番組自動生成ソフト
+
+### 北海道情報大学ウェブデザインコンテスト
+優秀賞
+実際に体験してネット上での危険を学ぶ「ウェブアドベンチャー」
+https://mouseos.github.io/wdc2023
+
+### ラジャマンガラ工科大学ウェブデザインコンテスト
+3位
+同上
+
+## その他
+ラジャマンガラ工科大学留学
+2022/2023
+
+# やっていること
+## ソフトウェア開発
+放送用ソフトウェア、Android 端末改造用ソフトウェアを主に開発。チャレンジパッドneo/next改造ツール初代開発者。
+### 言語
+python html JavaScript CSS php faust bash Java
+
 # 運営サイト、サービス
 ## みんなの放送局　（現Sapporo City FM）
 主にネット上で活動しているインターネットラジオ局です。
@@ -14,7 +52,8 @@ https://twitter.com/scfm888
 ## mousesoft
 実際のテレビ、ラジオ局で使用されているものを元にした配信者向けソフトを販売中です。
 ### 【OBS用】 時計＆天気　インフォバー
-[![【OBS用】 時計＆天気　インフォバー](https://s2.booth.pm/77cc5021-ad12-47a5-9211-22bae61de1db/i/5610567/8d6ac339-d398-40f0-b3f1-c286d34bc71b_base_resized.jpg)](https://mousesoft.booth.pm/items/5610567)
+[![【OBS用】 時計＆天気　インフォバー](https://s2.booth.pm/77c
+c5021-ad12-47a5-9211-22bae61de1db/i/5610567/8d6ac339-d398-40f0-b3f1-c286d34bc71b_base_resized.jpg)](https://mousesoft.booth.pm/items/5610567)
 ### 【OBS用】　地震情報テロップ
 [![【OBS用】 地震情報テロップ](https://s2.booth.pm/77cc5021-ad12-47a5-9211-22bae61de1db/i/5596910/ab3e7a46-d96f-4c1d-8f45-b590a1cdf7ce_base_resized.jpg)](https://mousesoft.booth.pm/items/5596910)
 
