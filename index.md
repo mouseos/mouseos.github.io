@@ -4,9 +4,8 @@
 24時間ストリーミング放送と一部公共施設内で放送を行う予定です。
 誰もが番組を持つことができる「みんなが参加できる放送局」を目指して放送をします。
 
-最新情報はTwitterで順次公開していきます。
-Twitter 
-https://twitter.com/scfm888
+最新情報はTwitterで順次公開していきます。 
+[Twitter](https://twitter.com/scfm888)
 （現 インターネット放送局Sapporo City FMアカウント）
 
 [![Twitter](img/minano-pr1.png)](https://twitter.com/scfm888)
@@ -32,20 +31,16 @@ c5021-ad12-47a5-9211-22bae61de1db/i/5610567/8d6ac339-d398-40f0-b3f1-c286d34bc71b
 ### 配信用　全自動音量・音質調整ソフトRadiMod audio processor
 [![配信用　全自動音量・音質調整ソフトRadiMod audio processor](https://s2.booth.pm/77cc5021-ad12-47a5-9211-22bae61de1db/i/4524861/3f2708b0-2edb-4728-b89b-8b9005546b1c_base_resized.jpg)](https://mousesoft.booth.pm/items/4524861)
 
-https://mousesoft.booth.pm
+[mousesoft](https://mousesoft.booth.pm)
 
 
 ## SmileTabLabo
 主にAndroid端末の改造、修理について研究しているwiki、dsicordサーバーです。
 改造と修理代行も受け付けております。
 
-トップページ
+[トップページ](https://wiki3.jp/SmileTabLabo)
 
-https://wiki3.jp/SmileTabLabo
-
-改造・修理サービス
-
-https://wiki3.jp/SmileTabLabo/page/67
+[改造・修理サービス](https://wiki3.jp/SmileTabLabo/page/67)
 
 
 # プロフィール
@@ -70,7 +65,7 @@ ITパスポート
 ### 北海道情報大学ウェブデザインコンテスト
 優秀賞
 実際に体験してネット上での危険を学ぶ「ウェブアドベンチャー」
-https://mouseos.github.io/wdc2023
+[ウェブアドベンチャー](https://mouseos.github.io/wdc2023)
 
 ### ラジャマンガラ工科大学ウェブデザインコンテスト
 3位
