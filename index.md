@@ -38,6 +38,8 @@ c5021-ad12-47a5-9211-22bae61de1db/i/5610567/8d6ac339-d398-40f0-b3f1-c286d34bc71b
 ### 【OBS用】簡単カスタマイズ時計
 [![【OBS用】簡単カスタマイズ時計](https://s2.booth.pm/77cc5021-ad12-47a5-9211-22bae61de1db/i/4858791/e03683ca-02a1-4196-a9b6-abcc3d7e3a96_base_resized.jpg)](https://mousesoft.booth.pm/items/4858791)
 
+### 【OBS用】　津波情報ウィジェット
+[![【OBS用】　津波情報ウィジェット](https://s2.booth.pm/77cc5021-ad12-47a5-9211-22bae61de1db/i/5629496/b9f6682c-3d07-441a-8bd0-545fbd459ca8_base_resized.jpg)](https://mousesoft.booth.pm/items/5629496)
 
 ### 配信用　全自動音量・音質調整ソフトRadiMod audio processor
 [![配信用　全自動音量・音質調整ソフトRadiMod audio processor](https://s2.booth.pm/77cc5021-ad12-47a5-9211-22bae61de1db/i/4524861/3f2708b0-2edb-4728-b89b-8b9005546b1c_base_resized.jpg)](https://mousesoft.booth.pm/items/4524861)
