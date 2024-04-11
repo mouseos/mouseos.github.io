@@ -64,6 +64,11 @@ c5021-ad12-47a5-9211-22bae61de1db/i/5610567/8d6ac339-d398-40f0-b3f1-c286d34bc71b
 2003/07/26
 ## 大学
 北海道情報大
+## アカウント
+### github
+[mouseos](https://github.com/mouseos)
+### Twitter
+[mouse_soft_y](@mouse_soft_y)
 ## 資格
 ITパスポート
 基本情報技術者試験は勉強中
