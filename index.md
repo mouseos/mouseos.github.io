@@ -6,7 +6,7 @@ title: ゆうのトップページ
 # プロフィール
 ## 名前
 清水 侑磨(ネット上：ゆう)
-## 誕生日
+## 生年月日
 2003/07/26
 ## 大学
 北海道情報大
@@ -27,6 +27,10 @@ ITパスポート
 [清水 侑磨, 小野 良太. (2024). 音声の高音域補間による音質改善. エンタテインメントコンピューティングシンポジウム2024論文集, 391-394. 北海道情報大学.](https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&page_id=13&block_id=8&item_id=238751&item_no=1)
 
 [動作デモ(YouTube)](https://youtu.be/Nnlo8ypgmZo?si=Cx9BT7zonbevIMon)
+
+![EC2024ゼミの小野先生と一緒に](img/EC2024-1.jpg)
+![EC2024振幅変調を用いた音声の高音域補間の動作原理を解説中](img/EC2024-2.jpg)
+
 ## 受賞歴
 ### 北海道情報大学プログラミングコンテスト2022 ラジャマンガラ工科大学国際プログラミングコンテスト
 最優秀賞
