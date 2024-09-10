@@ -74,18 +74,16 @@ Java,C++,csound,povray,puredata,small basic
 
 # 運営サイト、サービス
 
-> [!NOTE]
-> 画像クリックで関連サイトに飛びます
+画像クリックで関連サイトに飛びます
 
 ## みんなの放送局　（現Sapporo City FM）
 主にネット上で活動しているインターネットラジオ局です。
 24時間ストリーミング放送と一部公共施設内で放送を行う予定です。
 誰もが番組を持つことができる「みんなが参加できる放送局」を目指して放送をします。
 
-> [!IMPORTANT]
-> このサービスはまだリリースされていません。最新情報はTwitterで順次公開していきます。 
-> [Twitter](https://twitter.com/scfm888)
-> （現 インターネット放送局Sapporo City FMアカウント）
+このサービスはまだリリースされていません。最新情報はTwitterで順次公開していきます。 
+[Twitter](https://twitter.com/scfm888)
+（現 インターネット放送局Sapporo City FMアカウント）
 
 [![Twitter](img/minano-pr1.png)](https://twitter.com/scfm888)
 
