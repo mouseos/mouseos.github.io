@@ -86,12 +86,17 @@ Java,C++,csound,povray,puredata,small basic
 [![Twitter](img/minano-pr1.png)](https://twitter.com/scfm888)
 
 ## 制作ソフト(無償配布)
+画像クリックでダウンロードページヘ飛びます
+
 ### HIU教科書購入支援ツール
 北海道情報大学eduwebの時間割画面に購入するべき教科書一覧を表示します。
-[ダウンロード](https://mouseos.github.io/basic-of-project/index.html)
+
+[![HIU教科書購入支援ツール](img/HIU教科書購入支援ツール.png)](https://mouseos.github.io/basic-of-project/index.html)
 
 ## mousesoft
 実際のテレビ、ラジオ局で使用されているものを元にした配信者向けソフトを販売中です。
+
+画像クリックで購入ページヘ飛びます
 [mousesoft(booth)](https://mousesoft.booth.pm)
 
 ### 【OBS用】 時計＆天気　インフォバー
