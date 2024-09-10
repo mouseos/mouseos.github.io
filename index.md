@@ -89,6 +89,11 @@ Java,C++,csound,povray,puredata,small basic
 
 [![Twitter](img/minano-pr1.png)](https://twitter.com/scfm888)
 
+### みんなの放送局 Live
+2024年9月にサービスを終了したねとらじの代替サービスです。メインサービスに先立って公開する予定です。
+
+![みんなの放送局 Liveのスクリーンショット](img/minano-live-1.jpg)
+
 ## 制作ソフト(無償配布)
 画像クリックでダウンロードページヘ飛びます
 
