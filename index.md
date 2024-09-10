@@ -36,6 +36,7 @@ ITパスポート
 最優秀賞
 気象情報番組自動生成ソフト
 
+
 ### 北海道情報大学ウェブデザインコンテスト2023
 優秀賞
 実際に体験してネット上での危険を学ぶ「ウェブアドベンチャー」
@@ -84,8 +85,15 @@ Java,C++,csound,povray,puredata,small basic
 
 [![Twitter](img/minano-pr1.png)](https://twitter.com/scfm888)
 
+## 制作ソフト(無償配布)
+### HIU教科書購入支援ツール
+北海道情報大学eduwebの時間割画面に購入するべき教科書一覧を表示します。
+[ダウンロード](https://mouseos.github.io/basic-of-project/index.html)
+
 ## mousesoft
 実際のテレビ、ラジオ局で使用されているものを元にした配信者向けソフトを販売中です。
+[mousesoft(booth)](https://mousesoft.booth.pm)
+
 ### 【OBS用】 時計＆天気　インフォバー
 [![【OBS用】 時計＆天気　インフォバー](https://s2.booth.pm/77c
 c5021-ad12-47a5-9211-22bae61de1db/i/5610567/8d6ac339-d398-40f0-b3f1-c286d34bc71b_base_resized.jpg)](https://mousesoft.booth.pm/items/5610567)
@@ -107,7 +115,7 @@ c5021-ad12-47a5-9211-22bae61de1db/i/5610567/8d6ac339-d398-40f0-b3f1-c286d34bc71b
 ### 配信用　全自動音量・音質調整ソフトRadiMod audio processor
 [![配信用　全自動音量・音質調整ソフトRadiMod audio processor](https://s2.booth.pm/77cc5021-ad12-47a5-9211-22bae61de1db/i/4524861/3f2708b0-2edb-4728-b89b-8b9005546b1c_base_resized.jpg)](https://mousesoft.booth.pm/items/4524861)
 
-[mousesoft](https://mousesoft.booth.pm)
+
 
 
 ## SmileTabLabo
