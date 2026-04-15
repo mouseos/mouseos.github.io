@@ -24,9 +24,9 @@
 
 <!-- ==================== NAVBAR ==================== -->
 <div class="navbar fixed top-0 left-0 right-0 z-50 min-h-[56px] px-4 gap-2" style="background:#1c1c1c">
-  <label for="sidebar-drawer" class="btn btn-ghost btn-sm btn-square lg:hidden">
+  <button class="btn btn-ghost btn-sm btn-square lg:hidden" onclick="toggleSidebar()">
     <span class="material-icons text-white/75 text-[22px]">menu</span>
-  </label>
+  </button>
   <a href="index.html" class="text-base font-bold text-white whitespace-nowrap mr-2">みんなの放送局</a>
   <div class="hidden md:flex flex-1 max-w-sm">
     <div class="flex items-center gap-2 rounded px-3 py-1.5" style="background:rgba(255,255,255,0.12)">
@@ -49,12 +49,11 @@
   </div>
 </div>
 
-<!-- ==================== DRAWER WRAPPER ==================== -->
-<div class="drawer lg:drawer-open">
-  <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
+<!-- ==================== SIDEBAR OVERLAY ==================== -->
+<div id="sidebar-overlay" class="hidden fixed inset-0 z-30 bg-black/40 lg:hidden" onclick="closeSidebar()"></div>
 
-  <!-- Main content -->
-  <div class="drawer-content flex flex-col ml-0 lg:ml-60 pt-16 pb-[72px] min-h-screen">
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="flex flex-col ml-0 lg:ml-60 pt-[56px] pb-[72px] min-h-screen">
 
     <!-- ===== 1. SCFM HERO CARD ===== -->
     <div class="bg-base-200 border-b border-base-300">
@@ -329,48 +328,44 @@
       </div>
     </div>
 
-  </div><!-- /drawer-content -->
+  </div><!-- /main content -->
 
-  <!-- ==================== SIDEBAR ==================== -->
-  <div class="drawer-side z-40">
-    <label for="sidebar-drawer" class="drawer-overlay"></label>
-    <aside class="w-60 bg-base-200 border-r border-base-300 fixed top-16 bottom-[72px] overflow-y-auto">
-      <ul class="menu menu-sm p-2 gap-0.5">
-        <li>
-          <a href="index.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
-            <span class="material-icons text-[20px]">home</span>ホーム
-          </a>
-        </li>
-        <li>
-          <a href="live.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium active bg-primary/10 text-primary border-l-2 border-primary">
-            <span class="material-icons text-[20px]">radio</span>ライブ
-          </a>
-        </li>
-        <li>
-          <a href="schedule.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
-            <span class="material-icons text-[20px]">calendar_month</span>番組表
-          </a>
-        </li>
-        <li>
-          <a href="program.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
-            <span class="material-icons text-[20px]">search</span>さがす
-          </a>
-        </li>
-        <li class="my-1"><div class="divider my-0"></div></li>
-        <li>
-          <a href="dashboard.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
-            <span class="material-icons text-[20px]">dashboard</span>ダッシュボード
-          </a>
-        </li>
-        <li>
-          <a href="podcast-register.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
-            <span class="material-icons text-[20px]">add_circle_outline</span>番組を登録
-          </a>
-        </li>
-      </ul>
-    </aside>
-  </div>
-</div><!-- /drawer -->
+<!-- ==================== SIDEBAR ==================== -->
+<aside id="sidebar" class="w-60 bg-base-200 border-r border-base-300 fixed top-0 left-0 bottom-0 pt-[56px] pb-[72px] overflow-y-auto z-40 -translate-x-full lg:translate-x-0 transition-transform duration-300">
+  <ul class="menu menu-sm p-2 gap-0.5">
+    <li>
+      <a href="index.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+        <span class="material-icons text-[20px]">home</span>ホーム
+      </a>
+    </li>
+    <li>
+      <a href="live.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium active bg-primary/10 text-primary border-l-2 border-primary">
+        <span class="material-icons text-[20px]">radio</span>ライブ
+      </a>
+    </li>
+    <li>
+      <a href="schedule.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+        <span class="material-icons text-[20px]">calendar_month</span>番組表
+      </a>
+    </li>
+    <li>
+      <a href="program.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+        <span class="material-icons text-[20px]">search</span>さがす
+      </a>
+    </li>
+    <li class="my-1"><div class="divider my-0"></div></li>
+    <li>
+      <a href="dashboard.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+        <span class="material-icons text-[20px]">dashboard</span>ダッシュボード
+      </a>
+    </li>
+    <li>
+      <a href="podcast-register.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+        <span class="material-icons text-[20px]">add_circle_outline</span>番組を登録
+      </a>
+    </li>
+  </ul>
+</aside>
 
 <!-- ==================== PLAYER BAR ==================== -->
 <div class="fixed bottom-0 left-0 right-0 z-50 h-[72px] bg-base-200 border-t border-base-300 flex items-center px-4 gap-3">
@@ -405,5 +400,26 @@
   </div>
 </div>
 
+
+<script>
+function toggleSidebar() {
+  const s = document.getElementById('sidebar');
+  const o = document.getElementById('sidebar-overlay');
+  const isOpen = !s.classList.contains('-translate-x-full');
+  if (isOpen) { closeSidebar(); }
+  else {
+    s.classList.remove('-translate-x-full');
+    o.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeSidebar() {
+  const s = document.getElementById('sidebar');
+  const o = document.getElementById('sidebar-overlay');
+  s.classList.add('-translate-x-full');
+  o.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+</script>
 </body>
 </html>

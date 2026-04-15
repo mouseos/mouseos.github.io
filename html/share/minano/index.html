@@ -86,8 +86,8 @@
 <div class="flex" style="padding-top: 64px; padding-bottom: var(--player-h);">
 
   <!-- ===== SIDEBAR ===== -->
-  <nav id="sidebar" class="sidebar hidden lg:block fixed top-[64px] left-0 z-40 overflow-y-auto bg-base-200 border-r border-base-300"
-    style="bottom: var(--player-h); width: var(--sidebar-w);">
+  <nav id="sidebar" class="sidebar fixed top-0 left-0 bottom-0 z-40 overflow-y-auto bg-base-200 border-r border-base-300 -translate-x-full lg:translate-x-0 transition-transform duration-300"
+    style="padding-top: 64px; padding-bottom: var(--player-h); width: var(--sidebar-w);">
     <ul class="menu p-0 gap-0 w-full">
       <li>
         <a href="index.html"
@@ -365,19 +365,19 @@
 function toggleSidebar() {
   const s = document.getElementById('sidebar');
   const o = document.getElementById('sidebar-overlay');
-  const isHidden = s.classList.contains('hidden');
-  if (isHidden) {
-    s.classList.remove('hidden');
+  const isOpen = !s.classList.contains('-translate-x-full');
+  if (isOpen) {
+    closeSidebar();
+  } else {
+    s.classList.remove('-translate-x-full');
     o.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-  } else {
-    closeSidebar();
   }
 }
 function closeSidebar() {
   const s = document.getElementById('sidebar');
   const o = document.getElementById('sidebar-overlay');
-  s.classList.add('hidden');
+  s.classList.add('-translate-x-full');
   o.classList.add('hidden');
   document.body.style.overflow = '';
 }
