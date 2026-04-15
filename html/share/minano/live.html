@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みんなの放送局 - ライブ</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { font-family: 'Noto Sans JP', sans-serif; }
+[data-theme="light"] {
+  --p: 47.07% 0.186 27.5;
+  --pf: 38% 0.186 27.5;
+  --pc: 100% 0 0;
+  --n: 15% 0 0;
+  --nf: 11% 0 0;
+  --nc: 100% 0 0;
+}
+</style>
+</head>
+<body class="bg-base-100">
+
+<!-- ==================== NAVBAR ==================== -->
+<div class="navbar fixed top-0 left-0 right-0 z-50 min-h-[56px] px-4 gap-2" style="background:#1c1c1c">
+  <button class="btn btn-ghost btn-sm btn-square">
+    <span class="material-icons text-white/75 text-[22px]">menu</span>
+  </button>
+  <a href="index.html" class="text-base font-bold text-white whitespace-nowrap mr-2">みんなの放送局</a>
+  <div class="hidden md:flex flex-1 max-w-sm">
+    <div class="flex items-center gap-2 rounded px-3 py-1.5" style="background:rgba(255,255,255,0.12)">
+      <span class="material-icons text-[18px]" style="color:rgba(255,255,255,0.6)">search</span>
+      <input type="text" placeholder="番組・エピソードを検索"
+        class="bg-transparent border-none outline-none text-sm text-white w-full font-[inherit]"
+        style="color:white" placeholder-style="color:rgba(255,255,255,0.45)">
+    </div>
+  </div>
+  <div class="ml-auto flex items-center gap-1">
+    <a href="live.html" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded mr-1 text-white" style="background:#c62828">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-white"></span>ON AIR
+    </a>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[22px]" style="color:rgba(255,255,255,0.75)">notifications_none</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[30px]" style="color:rgba(255,255,255,0.75)">account_circle</span>
+    </button>
+  </div>
+</div>
+
+<!-- ==================== DRAWER WRAPPER ==================== -->
+<div class="drawer lg:drawer-open">
+  <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
+
+  <!-- Main content -->
+  <div class="drawer-content flex flex-col ml-0 lg:ml-60 pt-16 pb-[72px] min-h-screen">
+
+    <!-- ===== 1. SCFM HERO CARD ===== -->
+    <div class="bg-base-200 border-b border-base-300">
+      <div class="px-4 sm:px-7 py-3 border-b border-base-300 flex items-center gap-2">
+        <span class="material-icons text-[18px] text-primary">star</span>
+        <span class="text-sm font-bold text-primary">Sapporo City FM</span>
+        <span class="text-sm text-base-content/50 hidden sm:inline">— メイン放送局</span>
+        <span class="ml-auto badge badge-error text-[11px] font-bold gap-1">
+          <span class="material-icons text-[11px]">fiber_manual_record</span>ON AIR
+        </span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row bg-base-200 rounded-none p-4 sm:p-6 gap-4 sm:gap-6 items-start">
+        <!-- Artwork -->
+        <figure class="flex-shrink-0 w-full sm:w-40 max-w-[160px] h-32 sm:h-40 rounded bg-primary text-white flex flex-col items-center justify-center font-bold text-center select-none">
+          <div class="text-xl leading-tight">SAPPORO<br>CITY FM</div>
+          <div class="text-[11px] mt-1.5 opacity-70 tracking-widest">76.2 MHz</div>
+        </figure>
+
+        <!-- Info -->
+        <div class="card-body p-0 flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge badge-error font-bold text-[11px]">ON AIR</span>
+          </div>
+          <h2 class="text-xl font-bold leading-snug mb-1">深夜のひとりごと ep.147</h2>
+          <p class="text-base font-medium text-base-content/70 mb-3">「眠れない夜の哲学トーク」</p>
+
+          <div class="flex flex-col gap-1.5 mb-4 text-sm text-base-content/60">
+            <div class="flex items-center gap-2">
+              <span class="material-icons text-[16px]">podcasts</span>
+              <span>Sapporo City FM &nbsp;·&nbsp; 田中ゆうき &nbsp;·&nbsp; 60分</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-icons text-[16px]">people</span>
+              <span><strong class="text-base-content">1,243</strong>人が聴いています</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-icons text-[16px]">settings_input_antenna</span>
+              <span>/scfm &nbsp;·&nbsp; MP3 128kbps</span>
+            </div>
+          </div>
+
+          <div class="card-actions flex-wrap gap-2">
+            <button class="btn btn-primary gap-2" id="scfmPlayBtn"
+              onclick="(function(b){var i=b.querySelector('.material-icons');var t=b.querySelector('.btn-label');var playing=i.textContent==='play_circle';i.textContent=playing?'pause':'play_circle';t.textContent=playing?'停止':'聴く';})(this)">
+              <span class="material-icons">play_circle</span>
+              <span class="btn-label">聴く</span>
+            </button>
+            <button class="btn btn-outline btn-sm gap-1">
+              <span class="material-icons text-[16px]">share</span>シェア
+            </button>
+            <button class="btn btn-outline btn-sm gap-1">
+              <span class="material-icons text-[16px]">calendar_month</span>番組表
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 2. 次の放送予定 ===== -->
+    <div class="px-4 sm:px-7 py-5">
+      <h3 class="text-sm font-bold mb-3 flex items-center gap-1.5">
+        <span class="material-icons text-[17px] text-primary">schedule</span>次の放送予定
+      </h3>
+      <div class="card bg-base-200 rounded">
+        <div class="card-body p-0">
+          <div class="overflow-x-auto">
+          <table class="table table-sm">
+            <thead>
+              <tr class="text-xs text-base-content/50">
+                <th>時刻</th>
+                <th>番組名</th>
+                <th class="hidden sm:table-cell">エピソード</th>
+                <th>時間</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold text-primary whitespace-nowrap">22:00</td>
+                <td class="font-medium whitespace-nowrap">音楽発見ラボ</td>
+                <td class="hidden sm:table-cell text-base-content/60 text-xs">「インディーズ特集 vol.5」</td>
+                <td class="text-base-content/50 text-xs whitespace-nowrap">60分</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-primary whitespace-nowrap">23:30</td>
+                <td class="font-medium whitespace-nowrap">テック雑談ラジオ</td>
+                <td class="hidden sm:table-cell text-base-content/60 text-xs">「AI最前線2026」</td>
+                <td class="text-base-content/50 text-xs whitespace-nowrap">90分</td>
+              </tr>
+              <tr>
+                <td class="font-bold text-primary whitespace-nowrap">01:00</td>
+                <td class="font-medium whitespace-nowrap">深夜のひとりごと</td>
+                <td class="hidden sm:table-cell text-base-content/60 text-xs">「週明けの雑談スペシャル」</td>
+                <td class="text-base-content/50 text-xs whitespace-nowrap">60分</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 3. 配信局グリッド ===== -->
+    <div class="px-4 sm:px-7 pb-2">
+      <h3 class="text-sm font-bold mb-3 flex items-center gap-1.5">
+        <span class="material-icons text-[17px] text-primary">radio</span>
+        現在の配信局
+        <span class="text-sm font-normal text-base-content/50">（4局が配信中）</span>
+      </h3>
+    </div>
+    <div class="px-4 sm:px-7 pb-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+        <!-- LIVE: 雑談ラジオ夜更かし部 -->
+        <div class="card card-compact bg-base-200 border border-base-300 shadow-sm">
+          <div class="card-body gap-2 p-3">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 rounded bg-[#00695c] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">ZR</div>
+              <span class="badge badge-error text-[10px] font-bold">LIVE</span>
+            </div>
+            <div class="text-sm font-bold leading-snug">雑談ラジオ夜更かし部</div>
+            <div class="card-actions justify-end mt-auto">
+              <button class="btn btn-primary btn-sm w-full">聴く</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIVE: 朝の5分間英語 -->
+        <div class="card card-compact bg-base-200 border border-base-300 shadow-sm">
+          <div class="card-body gap-2 p-3">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 rounded bg-[#1565c0] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">EN</div>
+              <span class="badge badge-error text-[10px] font-bold">LIVE</span>
+            </div>
+            <div class="text-sm font-bold leading-snug">朝の5分間英語</div>
+            <div class="card-actions justify-end mt-auto">
+              <button class="btn btn-primary btn-sm w-full">聴く</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- OFFLINE: 週末のゆるい話 -->
+        <div class="card card-compact bg-base-200 border border-base-300 shadow-sm opacity-55">
+          <div class="card-body gap-2 p-3">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 rounded bg-[#546e7a] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">WK</div>
+              <span class="badge badge-ghost text-[10px] font-bold">OFFLINE</span>
+            </div>
+            <div class="text-sm font-bold leading-snug">週末のゆるい話</div>
+            <div class="card-actions justify-end mt-auto">
+              <button class="btn btn-sm w-full" disabled>オフライン</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIVE: テック雑談ラジオ -->
+        <div class="card card-compact bg-base-200 border border-base-300 shadow-sm">
+          <div class="card-body gap-2 p-3">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 rounded bg-[#00695c] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">TK</div>
+              <span class="badge badge-error text-[10px] font-bold">LIVE</span>
+            </div>
+            <div class="text-sm font-bold leading-snug">テック雑談ラジオ</div>
+            <div class="card-actions justify-end mt-auto">
+              <button class="btn btn-primary btn-sm w-full">聴く</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- OFFLINE: 深夜のひとりごと -->
+        <div class="card card-compact bg-base-200 border border-base-300 shadow-sm opacity-55">
+          <div class="card-body gap-2 p-3">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 rounded bg-[#37474f] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">MN</div>
+              <span class="badge badge-ghost text-[10px] font-bold">OFFLINE</span>
+            </div>
+            <div class="text-sm font-bold leading-snug">深夜のひとりごと</div>
+            <div class="card-actions justify-end mt-auto">
+              <button class="btn btn-sm w-full" disabled>オフライン</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIVE: 音楽と映画のあいだ -->
+        <div class="card card-compact bg-base-200 border border-base-300 shadow-sm">
+          <div class="card-body gap-2 p-3">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 rounded bg-[#4527a0] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">ML</div>
+              <span class="badge badge-error text-[10px] font-bold">LIVE</span>
+            </div>
+            <div class="text-sm font-bold leading-snug">音楽と映画のあいだ</div>
+            <div class="card-actions justify-end mt-auto">
+              <button class="btn btn-primary btn-sm w-full">聴く</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- OFFLINE: のんびりゲーム実況 -->
+        <div class="card card-compact bg-base-200 border border-base-300 shadow-sm opacity-55">
+          <div class="card-body gap-2 p-3">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 rounded bg-[#2e7d32] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">GM</div>
+              <span class="badge badge-ghost text-[10px] font-bold">OFFLINE</span>
+            </div>
+            <div class="text-sm font-bold leading-snug">のんびりゲーム実況</div>
+            <div class="card-actions justify-end mt-auto">
+              <button class="btn btn-sm w-full" disabled>オフライン</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIVE: コーヒーブレイクFM -->
+        <div class="card card-compact bg-base-200 border border-base-300 shadow-sm">
+          <div class="card-body gap-2 p-3">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 rounded bg-[#6d4c41] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">CF</div>
+              <span class="badge badge-error text-[10px] font-bold">LIVE</span>
+            </div>
+            <div class="text-sm font-bold leading-snug">コーヒーブレイクFM</div>
+            <div class="card-actions justify-end mt-auto">
+              <button class="btn btn-primary btn-sm w-full">聴く</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== 4. 接続情報 ===== -->
+    <div class="px-4 sm:px-7 pb-6">
+      <h3 class="text-sm font-bold mb-3 flex items-center gap-1.5">
+        <span class="material-icons text-[17px] text-primary">settings_input_antenna</span>接続情報
+      </h3>
+      <div class="alert alert-info rounded p-0 block">
+        <div class="card bg-base-200 border border-base-300 w-full">
+          <div class="card-body p-4 gap-3">
+            <!-- Stream URL -->
+            <div class="flex items-center gap-3 text-sm flex-wrap">
+              <span class="text-base-content/50 text-xs w-20 flex-shrink-0">ストリームURL</span>
+              <code class="flex-1 bg-base-100 border border-base-300 rounded px-2.5 py-1 text-xs text-blue-700 font-mono break-all">http://radio.example:8000/scfm</code>
+              <button class="btn btn-xs btn-outline" onclick="this.textContent='コピー済';setTimeout(()=>this.textContent='コピー',2000)">コピー</button>
+            </div>
+            <!-- Playlist -->
+            <div class="flex items-center gap-3 text-sm flex-wrap">
+              <span class="text-base-content/50 text-xs w-20 flex-shrink-0">プレイリスト</span>
+              <code class="flex-1 bg-base-100 border border-base-300 rounded px-2.5 py-1 text-xs text-blue-700 font-mono break-all">http://radio.example:8000/scfm.m3u</code>
+              <button class="btn btn-xs btn-outline" onclick="this.textContent='コピー済';setTimeout(()=>this.textContent='コピー',2000)">コピー</button>
+            </div>
+            <!-- Format -->
+            <div class="flex items-center gap-3 text-sm">
+              <span class="text-base-content/50 text-xs w-20 flex-shrink-0">フォーマット</span>
+              <span class="text-sm text-base-content/60">MP3 / 128 kbps &nbsp;·&nbsp; ポート 8000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="px-4 sm:px-7 pb-6">
+      <div class="card bg-base-200 border border-base-300">
+        <div class="card-body flex-row items-center gap-4 p-4">
+          <span class="material-icons text-[28px] text-base-content/30">mic</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-bold mb-0.5">あなたも配信してみませんか</div>
+            <div class="text-xs text-base-content/50">Mixxx・BUTT・Nicecast等のIcecast2対応ソフトから配信できます。マウントポイントは申請制。</div>
+          </div>
+          <a href="podcast-register.html" class="btn btn-outline btn-sm gap-1 flex-shrink-0">
+            配信方法<span class="material-icons text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /drawer-content -->
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <div class="drawer-side z-40">
+    <label for="sidebar-drawer" class="drawer-overlay"></label>
+    <aside class="w-60 bg-base-200 border-r border-base-300 fixed top-16 bottom-[72px] overflow-y-auto">
+      <ul class="menu menu-sm p-2 gap-0.5">
+        <li>
+          <a href="index.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+            <span class="material-icons text-[20px]">home</span>ホーム
+          </a>
+        </li>
+        <li>
+          <a href="live.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium active bg-primary/10 text-primary border-l-2 border-primary">
+            <span class="material-icons text-[20px]">radio</span>ライブ
+          </a>
+        </li>
+        <li>
+          <a href="schedule.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+            <span class="material-icons text-[20px]">calendar_month</span>番組表
+          </a>
+        </li>
+        <li>
+          <a href="program.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+            <span class="material-icons text-[20px]">search</span>さがす
+          </a>
+        </li>
+        <li class="my-1"><div class="divider my-0"></div></li>
+        <li>
+          <a href="dashboard.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+            <span class="material-icons text-[20px]">dashboard</span>ダッシュボード
+          </a>
+        </li>
+        <li>
+          <a href="podcast-register.html" class="flex items-center gap-3 py-2.5 px-4 rounded text-sm font-medium">
+            <span class="material-icons text-[20px]">add_circle_outline</span>番組を登録
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</div><!-- /drawer -->
+
+<!-- ==================== PLAYER BAR ==================== -->
+<div class="fixed bottom-0 left-0 right-0 z-50 h-[72px] bg-base-200 border-t border-base-300 flex items-center px-4 gap-3">
+  <!-- Artwork -->
+  <div class="w-[46px] h-[46px] rounded bg-primary text-white flex items-center justify-center text-[10px] font-bold text-center leading-tight flex-shrink-0 select-none">SCFM</div>
+  <!-- Info -->
+  <div class="w-[170px] flex-shrink-0 min-w-0">
+    <div class="text-sm font-bold truncate">深夜のひとりごと ep.147</div>
+    <div class="text-xs text-base-content/50 truncate">Sapporo City FM</div>
+  </div>
+  <!-- Controls -->
+  <div class="flex items-center gap-0.5">
+    <button class="btn btn-ghost btn-sm px-1">
+      <span class="material-icons text-[22px] text-base-content/60">skip_prev</span>
+    </button>
+    <button class="btn btn-ghost btn-sm px-1"
+      onclick="(function(b){var i=b.querySelector('.material-icons');i.textContent=i.textContent==='play_circle'?'pause_circle':'play_circle';})(this)">
+      <span class="material-icons text-[36px] text-primary">play_circle</span>
+    </button>
+    <button class="btn btn-ghost btn-sm px-1">
+      <span class="material-icons text-[22px] text-base-content/60">skip_next</span>
+    </button>
+  </div>
+  <!-- LIVE badge -->
+  <div class="flex-1 flex items-center gap-3">
+    <span class="badge badge-error font-bold text-[11px] tracking-wider">LIVE</span>
+  </div>
+  <!-- Volume -->
+  <div class="hidden sm:flex items-center gap-2 w-28">
+    <span class="material-icons text-[18px] text-base-content/50">volume_up</span>
+    <input type="range" min="0" max="100" value="70" class="range range-xs range-primary flex-1" />
+  </div>
+</div>
+
+</body>
+</html>

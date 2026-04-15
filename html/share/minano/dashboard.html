@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ダッシュボード — みんなの放送局</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { font-family: 'Noto Sans JP', sans-serif; }
+[data-theme="light"] {
+  --p: 47.07% 0.186 27.5;
+  --pf: 38% 0.186 27.5;
+  --pc: 100% 0 0;
+  --n: 15% 0 0;
+  --nf: 11% 0 0;
+  --nc: 100% 0 0;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (fixed, bg-neutral) -->
+<div class="navbar fixed top-0 left-0 right-0 z-50 min-h-[56px] px-4 gap-2" style="background:#1c1c1c">
+  <button class="btn btn-ghost btn-sm btn-square">
+    <span class="material-icons text-white/75 text-[22px]">menu</span>
+  </button>
+  <a href="index.html" class="text-base font-bold text-white whitespace-nowrap mr-2">みんなの放送局</a>
+  <div class="flex-1 max-w-sm hidden md:block">
+    <div class="flex items-center gap-2 rounded px-3 py-1.5" style="background:rgba(255,255,255,0.12)">
+      <span class="material-icons text-[18px]" style="color:rgba(255,255,255,0.6)">search</span>
+      <input type="text" placeholder="番組・エピソードを検索"
+        class="bg-transparent border-none outline-none text-sm text-white w-full font-[inherit]"
+        style="color:white" placeholder-style="color:rgba(255,255,255,0.45)">
+    </div>
+  </div>
+  <div class="ml-auto flex items-center gap-1">
+    <a href="live.html" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded mr-1 text-white" style="background:#c62828">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-white"></span>ON AIR
+    </a>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[22px]" style="color:rgba(255,255,255,0.75)">notifications_none</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[30px]" style="color:rgba(255,255,255,0.75)">account_circle</span>
+    </button>
+  </div>
+</div>
+
+<div class="flex" style="padding-top:56px; padding-bottom:72px; min-height:100vh;">
+
+  <!-- Sidebar (fixed w-60, menu) -->
+  <nav class="hidden lg:block fixed top-[56px] left-0 bottom-[72px] w-60 bg-base-200 border-r border-base-300 z-40 overflow-y-auto">
+    <ul class="menu menu-sm p-2 gap-0.5">
+      <li>
+        <a href="index.html" class="flex items-center gap-3 rounded px-4 py-2.5 text-sm font-medium">
+          <span class="material-icons text-xl">home</span>ホーム
+        </a>
+      </li>
+      <li>
+        <a href="live.html" class="flex items-center gap-3 rounded px-4 py-2.5 text-sm font-medium">
+          <span class="material-icons text-xl">radio</span>ライブ
+        </a>
+      </li>
+      <li>
+        <a href="schedule.html" class="flex items-center gap-3 rounded px-4 py-2.5 text-sm font-medium">
+          <span class="material-icons text-xl">calendar_month</span>番組表
+        </a>
+      </li>
+      <li>
+        <a href="program.html" class="flex items-center gap-3 rounded px-4 py-2.5 text-sm font-medium">
+          <span class="material-icons text-xl">search</span>さがす
+        </a>
+      </li>
+      <div class="divider my-1"></div>
+      <li>
+        <a href="dashboard.html" class="flex items-center gap-3 rounded px-4 py-2.5 text-sm font-medium text-primary bg-primary/10 border-l-4 border-primary -ml-0 rounded-l-none active">
+          <span class="material-icons text-xl">dashboard</span>ダッシュボード
+        </a>
+      </li>
+      <li>
+        <a href="podcast-register.html" class="flex items-center gap-3 rounded px-4 py-2.5 text-sm font-medium">
+          <span class="material-icons text-xl">add_circle_outline</span>番組を登録
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main class="lg:ml-60 flex-1 p-6 pt-6">
+
+    <!-- Page header -->
+    <div class="flex items-center justify-between mb-5 flex-wrap gap-3">
+      <h1 class="text-lg font-bold">マイダッシュボード</h1>
+      <a href="podcast-register.html" class="btn btn-primary btn-sm gap-1">
+        <span class="material-icons text-sm">add</span>番組を追加
+      </a>
+    </div>
+
+    <!-- 2-column grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+      <!-- Left column -->
+      <div class="flex flex-col gap-4">
+
+        <!-- Registered programs card -->
+        <div class="card bg-base-200">
+          <div class="card-body p-4">
+            <div class="card-title text-sm font-bold mb-3 flex items-center gap-2">
+              <span class="material-icons text-base text-primary">podcasts</span>
+              登録番組
+              <span class="badge badge-ghost badge-sm ml-1">2番組</span>
+            </div>
+
+            <!-- Program item 1 -->
+            <div class="flex items-center gap-3 p-2.5 border border-base-300 rounded-lg bg-base-100 mb-2">
+              <div class="w-11 h-11 bg-primary rounded flex-shrink-0 flex items-center justify-center text-primary-content text-[9px] font-bold text-center leading-tight">
+                TECH<br>TALK
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-bold truncate">テック雑談ラジオ</div>
+                <div class="flex items-center gap-1.5 mt-0.5">
+                  <span class="badge badge-success badge-sm">承認済</span>
+                  <span class="text-xs text-base-content/40">92エピソード</span>
+                </div>
+              </div>
+              <button class="btn btn-ghost btn-sm btn-square">
+                <span class="material-icons text-sm">settings</span>
+              </button>
+            </div>
+
+            <!-- Program item 2 -->
+            <div class="flex items-center gap-3 p-2.5 border border-base-300 rounded-lg bg-base-100 mb-2">
+              <div class="w-11 h-11 bg-blue-700 rounded flex-shrink-0 flex items-center justify-center text-white text-[9px] font-bold text-center leading-tight">
+                MUSIC<br>FILM
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-bold truncate">音楽と映画のあいだ</div>
+                <div class="flex items-center gap-1.5 mt-0.5">
+                  <span class="badge badge-warning badge-sm">審査中</span>
+                  <span class="text-xs text-base-content/40">31エピソード</span>
+                </div>
+              </div>
+              <button class="btn btn-ghost btn-sm btn-square">
+                <span class="material-icons text-sm">settings</span>
+              </button>
+            </div>
+
+            <!-- Add program button -->
+            <button class="flex items-center justify-center gap-1.5 w-full py-2.5 border border-dashed border-base-300 rounded-lg text-sm text-base-content/50 hover:text-base-content hover:border-base-content/40 transition-colors bg-transparent cursor-pointer mt-1" onclick="location.href='podcast-register.html'">
+              <span class="material-icons text-lg">add_circle_outline</span>
+              新しい番組を登録
+            </button>
+          </div>
+        </div>
+
+        <!-- Broadcast history card -->
+        <div class="card bg-base-200">
+          <div class="card-body p-4">
+            <div class="card-title text-sm font-bold mb-3 flex items-center gap-2">
+              <span class="material-icons text-base text-primary">history</span>
+              直近の放送実績
+            </div>
+            <div class="overflow-x-auto">
+              <table class="table table-xs">
+                <thead>
+                  <tr>
+                    <th>日時</th>
+                    <th>番組</th>
+                    <th>時間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="whitespace-nowrap text-base-content/60">04-15 21:00</td>
+                    <td class="truncate max-w-[160px]">テック雑談ラジオ #90</td>
+                    <td class="whitespace-nowrap text-base-content/40">60分</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap text-base-content/60">04-08 14:00</td>
+                    <td class="truncate max-w-[160px]">テック雑談ラジオ #89</td>
+                    <td class="whitespace-nowrap text-base-content/40">48分</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap text-base-content/60">04-01 09:00</td>
+                    <td class="truncate max-w-[160px]">テック雑談ラジオ #88</td>
+                    <td class="whitespace-nowrap text-base-content/40">52分</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap text-base-content/60">03-25 14:00</td>
+                    <td class="truncate max-w-[160px]">テック雑談ラジオ #87</td>
+                    <td class="whitespace-nowrap text-base-content/40">45分</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap text-base-content/60">03-18 09:00</td>
+                    <td class="truncate max-w-[160px]">テック雑談ラジオ #86</td>
+                    <td class="whitespace-nowrap text-base-content/40">55分</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /left column -->
+
+      <!-- Right column -->
+      <div class="flex flex-col gap-4">
+
+        <!-- Broadcast time card -->
+        <div class="card bg-base-200">
+          <div class="card-body p-4">
+            <div class="card-title text-sm font-bold mb-3 flex items-center gap-2">
+              <span class="material-icons text-base text-primary">schedule</span>
+              放送希望時間
+            </div>
+
+            <p class="text-sm font-bold mb-2 pb-2 border-b border-base-300">テック雑談ラジオ</p>
+
+            <!-- Time slot 1 -->
+            <div class="flex items-center gap-2 bg-base-100 rounded-lg p-2 border border-base-300 mb-2">
+              <span class="material-icons text-sm text-base-content/40">schedule</span>
+              <span class="flex-1 text-sm font-medium">09:00 〜 10:00</span>
+              <button class="btn btn-ghost btn-xs btn-square"><span class="material-icons text-sm">edit</span></button>
+              <button class="btn btn-ghost btn-xs btn-square"><span class="material-icons text-sm">close</span></button>
+            </div>
+
+            <!-- Time slot 2 -->
+            <div class="flex items-center gap-2 bg-base-100 rounded-lg p-2 border border-base-300 mb-2">
+              <span class="material-icons text-sm text-base-content/40">schedule</span>
+              <span class="flex-1 text-sm font-medium">14:00 〜 15:00</span>
+              <button class="btn btn-ghost btn-xs btn-square"><span class="material-icons text-sm">edit</span></button>
+              <button class="btn btn-ghost btn-xs btn-square"><span class="material-icons text-sm">close</span></button>
+            </div>
+
+            <!-- Add time slot button -->
+            <button class="flex items-center gap-1.5 w-full py-2 px-2.5 border border-dashed border-base-300 rounded-lg text-sm text-base-content/50 hover:text-base-content hover:border-base-content/40 transition-colors bg-transparent cursor-pointer mb-3">
+              <span class="material-icons text-base">add</span>
+              時間帯を追加（あと1枠）
+            </button>
+
+            <div class="flex justify-end">
+              <button class="btn btn-primary btn-sm gap-1">
+                <span class="material-icons text-sm">save</span>設定を保存
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RSS sync card -->
+        <div class="card bg-base-200">
+          <div class="card-body p-4">
+            <div class="card-title text-sm font-bold mb-3 flex items-center gap-2">
+              <span class="material-icons text-base text-primary">rss_feed</span>
+              RSS同期状況
+            </div>
+
+            <!-- RSS row 1 -->
+            <div class="flex items-center gap-3 py-2.5">
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-medium truncate">テック雑談ラジオ</div>
+                <div class="text-xs text-base-content/30 truncate">https://anchor.fm/s/tech-talk/podcast/rss</div>
+              </div>
+              <div class="flex flex-col items-end gap-1 flex-shrink-0">
+                <span class="badge badge-success badge-sm">同期済 · 2時間前</span>
+                <button class="btn btn-ghost btn-xs gap-1">
+                  <span class="material-icons text-sm">sync</span>今すぐ同期
+                </button>
+              </div>
+            </div>
+
+            <div class="divider my-0"></div>
+
+            <!-- RSS row 2 -->
+            <div class="flex items-center gap-3 py-2.5">
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-medium truncate">音楽と映画のあいだ</div>
+                <div class="text-xs text-base-content/30 truncate">https://anchor.fm/s/music-film/podcast/rss</div>
+              </div>
+              <div class="flex flex-col items-end gap-1 flex-shrink-0">
+                <span class="badge badge-warning badge-sm">3日前 · 要確認</span>
+                <button class="btn btn-ghost btn-xs gap-1">
+                  <span class="material-icons text-sm">sync</span>今すぐ同期
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /right column -->
+
+    </div><!-- /grid -->
+  </main>
+</div>
+
+<!-- Player bar (fixed bottom) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 h-[72px] bg-base-200 border-t border-base-300 flex items-center px-4 gap-4">
+  <div class="w-[46px] h-[46px] rounded bg-primary text-primary-content flex items-center justify-center text-[10px] font-bold text-center leading-tight flex-shrink-0">
+    SCFM
+  </div>
+  <div class="w-[170px] min-w-0 flex-shrink-0">
+    <div class="text-sm font-bold truncate">深夜のひとりごと ep.147</div>
+    <div class="text-xs text-base-content/50 truncate">Sapporo City FM</div>
+  </div>
+  <div class="flex items-center gap-0.5">
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-xl text-base-content/60">skip_previous</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-4xl text-primary">pause_circle</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-xl text-base-content/60">skip_next</span>
+    </button>
+  </div>
+  <div class="flex-1 flex items-center gap-2">
+    <span class="text-[11px] font-bold bg-primary text-primary-content px-1.5 py-0.5 rounded-sm tracking-wide">LIVE</span>
+  </div>
+  <div class="flex items-center gap-1.5 w-24">
+    <span class="material-icons text-base text-base-content/50">volume_up</span>
+    <input type="range" min="0" max="100" value="80" class="range range-xs range-primary flex-1">
+  </div>
+</div>
+
+</body>
+</html>

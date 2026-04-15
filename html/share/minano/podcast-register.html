@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>番組を登録 — みんなの放送局</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { font-family: 'Noto Sans JP', sans-serif; }
+[data-theme="light"] {
+  --p: 47.07% 0.186 27.5;
+  --pf: 38% 0.186 27.5;
+  --pc: 100% 0 0;
+  --n: 15% 0 0;
+  --nf: 11% 0 0;
+  --nc: 100% 0 0;
+}
+</style>
+</head>
+<body class="min-h-screen bg-base-100">
+
+<!-- Navbar -->
+<div class="navbar fixed top-0 left-0 right-0 z-50 min-h-[56px] px-4 gap-2" style="background:#1c1c1c">
+  <button class="btn btn-ghost btn-sm btn-square">
+    <span class="material-icons text-white/75 text-[22px]">menu</span>
+  </button>
+  <a href="index.html" class="text-base font-bold text-white whitespace-nowrap mr-2">みんなの放送局</a>
+  <div class="hidden md:flex flex-1 max-w-sm">
+    <div class="flex items-center gap-2 rounded px-3 py-1.5 w-full" style="background:rgba(255,255,255,0.12)">
+      <span class="material-icons text-[18px]" style="color:rgba(255,255,255,0.6)">search</span>
+      <input type="text" placeholder="番組・エピソードを検索"
+        class="bg-transparent border-none outline-none text-sm text-white w-full font-[inherit]"
+        style="color:white" placeholder-style="color:rgba(255,255,255,0.45)">
+    </div>
+  </div>
+  <div class="ml-auto flex items-center gap-1">
+    <a href="live.html" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded mr-1 text-white" style="background:#c62828">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-white"></span>ON AIR
+    </a>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[22px]" style="color:rgba(255,255,255,0.75)">notifications_none</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[30px]" style="color:rgba(255,255,255,0.75)">account_circle</span>
+    </button>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div class="hidden lg:block fixed top-[56px] left-0 bottom-[72px] w-60 bg-base-200 border-r border-base-300 z-40 overflow-y-auto">
+  <ul class="menu menu-sm p-2 gap-0.5">
+    <li>
+      <a href="index.html" class="flex items-center gap-3 py-2.5 px-4 text-sm font-medium rounded">
+        <span class="material-icons text-[20px]">home</span>ホーム
+      </a>
+    </li>
+    <li>
+      <a href="live.html" class="flex items-center gap-3 py-2.5 px-4 text-sm font-medium rounded">
+        <span class="material-icons text-[20px]">radio</span>ライブ
+      </a>
+    </li>
+    <li>
+      <a href="schedule.html" class="flex items-center gap-3 py-2.5 px-4 text-sm font-medium rounded">
+        <span class="material-icons text-[20px]">calendar_month</span>番組表
+      </a>
+    </li>
+    <li>
+      <a href="program.html" class="flex items-center gap-3 py-2.5 px-4 text-sm font-medium rounded">
+        <span class="material-icons text-[20px]">search</span>さがす
+      </a>
+    </li>
+    <div class="divider my-1"></div>
+    <li>
+      <a href="dashboard.html" class="flex items-center gap-3 py-2.5 px-4 text-sm font-medium rounded">
+        <span class="material-icons text-[20px]">dashboard</span>ダッシュボード
+      </a>
+    </li>
+    <li>
+      <a href="podcast-register.html" class="flex items-center gap-3 py-2.5 px-4 text-sm font-medium rounded active bg-primary/10 text-primary border-l-[3px] border-primary rounded-l-none">
+        <span class="material-icons text-[20px]">add_circle_outline</span>番組を登録
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Main Content -->
+<main class="lg:ml-60 pt-16 pb-[72px] flex justify-center px-6">
+  <div class="w-full max-w-2xl py-7">
+
+    <!-- Page Title -->
+    <div class="flex items-center gap-2 text-lg font-bold mb-1">
+      <span class="material-icons text-[20px] text-primary">add_circle_outline</span>
+      番組を登録
+    </div>
+    <p class="text-sm text-base-content/60 mb-6">RSSフィードを登録するだけで、あなたのpodcastが24時間ラジオに参加できます。</p>
+
+    <!-- Steps -->
+    <ul class="steps w-full mb-8">
+      <li class="step step-primary">RSS入力</li>
+      <li class="step step-primary">番組確認</li>
+      <li class="step">放送時間</li>
+      <li class="step">完了</li>
+    </ul>
+
+    <!-- Step 1: RSS URL (完了済み) -->
+    <div class="card bg-base-200 mb-4">
+      <div class="card-body p-5">
+        <div class="flex items-center gap-1.5 text-sm font-bold mb-3">
+          <span class="material-icons text-[16px] text-primary">rss_feed</span>
+          RSSフィードのURL
+        </div>
+        <div class="form-control">
+          <label class="label pb-1.5">
+            <span class="label-text text-xs font-bold text-base-content/60">RSSフィードのURL</span>
+          </label>
+          <div class="flex gap-2">
+            <input
+              type="url"
+              class="input input-bordered flex-1 text-sm text-base-content/60"
+              value="https://anchor.fm/s/example/podcast/rss"
+              readonly
+            >
+            <button class="btn btn-outline btn-sm self-end">
+              <span class="material-icons text-[16px]">edit</span>変更
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: 番組確認 -->
+    <div class="card bg-base-200 mb-4">
+      <div class="card-body p-5">
+        <div class="flex items-center gap-1.5 text-sm font-bold mb-3">
+          <span class="material-icons text-[16px] text-primary">podcasts</span>
+          番組情報の確認
+        </div>
+
+        <!-- Preview -->
+        <div class="flex gap-3.5 p-3.5 bg-base-100 rounded-lg mb-4">
+          <!-- Artwork -->
+          <div class="w-16 h-16 rounded flex-shrink-0 bg-primary text-primary-content flex items-center justify-center text-[10px] font-bold text-center leading-snug">
+            PODCAST<br>ART
+          </div>
+          <!-- Info -->
+          <div class="flex-1 min-w-0">
+            <div class="text-[15px] font-bold mb-1">テック雑談ラジオ</div>
+            <div class="text-xs text-base-content/60 mb-2 leading-relaxed">
+              エンジニア2人がテクノロジーについてゆるく話すpodcastです。毎週火曜更新。
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge badge-outline text-xs">
+                <span class="material-icons text-[13px] mr-1">library_music</span>92エピソード
+              </span>
+              <span class="badge badge-outline text-xs">
+                <span class="material-icons text-[13px] mr-1">person</span>田中ゆうき / 山田たろう
+              </span>
+              <span class="badge badge-outline text-xs">
+                <span class="material-icons text-[13px] mr-1">update</span>最終更新: 3日前
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2">
+          <button class="btn btn-ghost btn-sm">戻る</button>
+          <button class="btn btn-primary btn-sm">
+            <span class="material-icons text-[16px]">arrow_forward</span>この番組で進む
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: 放送希望時間（アクティブ） -->
+    <div class="card bg-base-200 mb-4">
+      <div class="card-body p-5">
+        <div class="flex items-center gap-1.5 text-sm font-bold mb-3">
+          <span class="material-icons text-[16px] text-primary">schedule</span>
+          放送希望時間（最大3枠）
+        </div>
+        <p class="text-sm text-base-content/60 mb-4 leading-relaxed">
+          放送してほしい時間帯を最大3つまで指定できます。管理者がスケジュールを組む際の参考にします。
+        </p>
+
+        <!-- Time slots -->
+        <div class="flex flex-col gap-2 mb-3">
+          <!-- Slot 1 -->
+          <div class="flex flex-wrap items-center gap-2 bg-base-100 rounded-lg p-2 border border-base-300">
+            <span class="material-icons text-base-content/40">schedule</span>
+            <input type="time" class="input input-sm input-bordered w-28" value="09:00">
+            <span class="text-sm">〜</span>
+            <input type="time" class="input input-sm input-bordered w-28" value="10:00">
+            <button class="btn btn-ghost btn-sm btn-square">
+              <span class="material-icons text-sm">close</span>
+            </button>
+          </div>
+          <!-- Slot 2 -->
+          <div class="flex flex-wrap items-center gap-2 bg-base-100 rounded-lg p-2 border border-base-300">
+            <span class="material-icons text-base-content/40">schedule</span>
+            <input type="time" class="input input-sm input-bordered w-28" value="14:00">
+            <span class="text-sm">〜</span>
+            <input type="time" class="input input-sm input-bordered w-28" value="15:00">
+            <button class="btn btn-ghost btn-sm btn-square">
+              <span class="material-icons text-sm">close</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Add slot button -->
+        <button class="flex items-center gap-1.5 text-sm text-base-content/60 bg-transparent border border-dashed border-base-300 rounded-lg px-3 py-2 cursor-pointer w-full font-[inherit] hover:border-base-content/40 hover:text-base-content transition-colors">
+          <span class="material-icons text-[17px]">add</span>
+          時間帯を追加（あと1枠）
+        </button>
+
+        <!-- Alert -->
+        <div class="alert alert-info mt-4 text-sm">
+          <span class="material-icons text-[18px]">info</span>
+          <span>
+            登録後、管理者が内容を審査のうえ放送スケジュールへ組み込みます。審査には数日かかる場合があります。
+            承認されると登録メールアドレスに通知が届きます。
+          </span>
+        </div>
+
+        <div class="flex justify-end gap-2 mt-4">
+          <button class="btn btn-ghost btn-sm">戻る</button>
+          <button class="btn btn-primary">
+            <span class="material-icons text-[16px]">check</span>登録する
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Player Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 h-[72px] bg-base-200 border-t border-base-300 flex items-center px-4 gap-4">
+  <!-- Artwork -->
+  <div class="w-[46px] h-[46px] rounded flex-shrink-0 bg-primary text-primary-content flex items-center justify-center text-[10px] font-bold text-center leading-snug">
+    SCFM
+  </div>
+  <!-- Info -->
+  <div class="w-[170px] min-w-0 flex-shrink-0">
+    <div class="text-sm font-bold whitespace-nowrap overflow-hidden text-ellipsis">深夜のひとりごと ep.147</div>
+    <div class="text-xs text-base-content/60 whitespace-nowrap overflow-hidden text-ellipsis">Sapporo City FM</div>
+  </div>
+  <!-- Controls -->
+  <div class="flex items-center gap-0.5">
+    <button class="btn btn-ghost btn-square btn-sm">
+      <span class="material-icons text-[22px]">skip_previous</span>
+    </button>
+    <button class="btn btn-ghost btn-square">
+      <span class="material-icons text-[36px] text-primary">pause_circle</span>
+    </button>
+    <button class="btn btn-ghost btn-square btn-sm">
+      <span class="material-icons text-[22px]">skip_next</span>
+    </button>
+  </div>
+  <!-- Progress / Live -->
+  <div class="flex-1 flex items-center gap-2.5">
+    <span class="text-xs font-bold bg-primary text-primary-content px-1.5 py-0.5 rounded-sm tracking-wide">LIVE</span>
+  </div>
+  <!-- Volume -->
+  <div class="flex items-center gap-1.5 w-24">
+    <span class="material-icons text-[18px] text-base-content/60">volume_up</span>
+    <input type="range" min="0" max="100" value="80" class="range range-xs flex-1">
+  </div>
+</div>
+
+</body>
+</html>

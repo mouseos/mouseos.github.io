@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テック雑談ラジオ — みんなの放送局</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { font-family: 'Noto Sans JP', sans-serif; }
+[data-theme="light"] {
+  --p: 47.07% 0.186 27.5;
+  --pf: 38% 0.186 27.5;
+  --pc: 100% 0 0;
+  --n: 15% 0 0;
+  --nf: 11% 0 0;
+  --nc: 100% 0 0;
+}
+</style>
+</head>
+<body class="bg-base-100 min-h-screen">
+
+<!-- Navbar (fixed, bg-neutral) -->
+<div class="navbar fixed top-0 left-0 right-0 z-50 min-h-[56px] px-4 gap-2" style="background:#1c1c1c">
+  <button class="btn btn-ghost btn-sm btn-square">
+    <span class="material-icons text-white/75 text-[22px]">menu</span>
+  </button>
+  <a href="index.html" class="text-base font-bold text-white whitespace-nowrap mr-2">みんなの放送局</a>
+  <div class="flex-1 max-w-sm">
+    <div class="flex items-center gap-2 rounded px-3 py-1.5" style="background:rgba(255,255,255,0.12)">
+      <span class="material-icons text-[18px]" style="color:rgba(255,255,255,0.6)">search</span>
+      <input type="text" placeholder="番組・エピソードを検索"
+        class="bg-transparent border-none outline-none text-sm text-white w-full font-[inherit]"
+        style="color:white" placeholder-style="color:rgba(255,255,255,0.45)">
+    </div>
+  </div>
+  <div class="ml-auto flex items-center gap-1">
+    <a href="live.html" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded mr-1 text-white" style="background:#c62828">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-white"></span>ON AIR
+    </a>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[22px]" style="color:rgba(255,255,255,0.75)">notifications_none</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[30px]" style="color:rgba(255,255,255,0.75)">account_circle</span>
+    </button>
+  </div>
+</div>
+
+<div class="flex pt-16 pb-[72px] min-h-screen">
+
+  <!-- Sidebar (fixed w-60, menu) -->
+  <nav class="fixed top-16 left-0 bottom-[72px] w-60 bg-base-200 border-r border-base-300 overflow-y-auto z-40 hidden md:block">
+    <ul class="menu menu-sm p-2 gap-0.5">
+      <li>
+        <a href="index.html" class="flex items-center gap-3 px-5 py-2.5 text-sm font-medium rounded-none border-l-[3px] border-transparent">
+          <span class="material-icons text-[20px]">home</span>ホーム
+        </a>
+      </li>
+      <li>
+        <a href="live.html" class="flex items-center gap-3 px-5 py-2.5 text-sm font-medium rounded-none border-l-[3px] border-transparent">
+          <span class="material-icons text-[20px]">radio</span>ライブ
+        </a>
+      </li>
+      <li>
+        <a href="schedule.html" class="flex items-center gap-3 px-5 py-2.5 text-sm font-medium rounded-none border-l-[3px] border-transparent">
+          <span class="material-icons text-[20px]">calendar_month</span>番組表
+        </a>
+      </li>
+      <li>
+        <a href="program.html"
+          class="flex items-center gap-3 px-5 py-2.5 text-sm font-medium rounded-none border-l-[3px] border-primary text-primary bg-primary/10 active">
+          <span class="material-icons text-[20px]">search</span>さがす
+        </a>
+      </li>
+      <div class="divider my-1"></div>
+      <li>
+        <a href="dashboard.html" class="flex items-center gap-3 px-5 py-2.5 text-sm font-medium rounded-none border-l-[3px] border-transparent">
+          <span class="material-icons text-[20px]">dashboard</span>ダッシュボード
+        </a>
+      </li>
+      <li>
+        <a href="podcast-register.html" class="flex items-center gap-3 px-5 py-2.5 text-sm font-medium rounded-none border-l-[3px] border-transparent">
+          <span class="material-icons text-[20px]">add_circle_outline</span>番組を登録
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main class="ml-0 md:ml-60 flex-1">
+
+    <!-- 1. 番組ヒーローヘッダー -->
+    <div class="card bg-base-200 rounded-none border-b border-base-300">
+      <div class="card-body p-6 md:p-7">
+        <div class="flex gap-5 items-start flex-col sm:flex-row">
+          <!-- アートワーク -->
+          <div class="w-[100px] h-[100px] flex-shrink-0 bg-primary text-primary-content rounded-lg flex items-center justify-center text-xs font-bold text-center leading-snug">
+            TECH<br>TALK
+          </div>
+          <!-- メタ情報 -->
+          <div class="flex-1 min-w-0">
+            <h1 class="text-xl font-bold mb-1">テック雑談ラジオ</h1>
+            <div class="flex items-center gap-1 text-sm text-base-content/60 mb-2">
+              <span class="material-icons text-[15px]">person</span>
+              田中ゆうき / 山田たろう
+            </div>
+            <p class="text-sm text-base-content/70 leading-relaxed mb-3">
+              エンジニア2人がテクノロジーの最新動向や日常について、毎週火曜日にゆるく話すpodcastです。難しい話もかみ砕いてわかりやすく。
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-3">
+              <span class="badge badge-outline badge-sm">テクノロジー</span>
+              <span class="badge badge-outline badge-sm">エンジニアリング</span>
+              <span class="badge badge-outline badge-sm">雑談</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <button class="btn btn-primary btn-sm gap-1.5">
+                <span class="material-icons text-[16px]">notifications</span>フォロー
+              </button>
+              <button class="btn btn-ghost btn-sm gap-1.5">
+                <span class="material-icons text-[16px]">share</span>共有
+              </button>
+              <span class="ml-auto flex items-center gap-1 text-xs text-base-content/50">
+                <span class="material-icons text-[14px]">sync</span>RSS同期済 · 2時間前
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 統計行 -->
+    <div class="stats border-b border-base-300 rounded-none w-full">
+      <div class="stat text-center">
+        <div class="stat-value text-lg font-bold">92</div>
+        <div class="stat-desc">エピソード</div>
+      </div>
+      <div class="stat text-center">
+        <div class="stat-value text-lg font-bold">1,203</div>
+        <div class="stat-desc">フォロワー</div>
+      </div>
+      <div class="stat text-center">
+        <div class="stat-value text-lg font-bold">48分</div>
+        <div class="stat-desc">平均再生時間</div>
+      </div>
+      <div class="stat text-center">
+        <div class="stat-value text-lg font-bold">毎週火</div>
+        <div class="stat-desc">更新頻度</div>
+      </div>
+    </div>
+
+    <!-- 3. 放送予定セクション -->
+    <div class="px-7 pt-5 pb-0">
+      <div class="flex items-center justify-between mb-3.5">
+        <div class="flex items-center gap-1.5 text-sm font-bold">
+          <span class="material-icons text-[16px] text-primary">event</span>放送予定
+        </div>
+        <button class="btn btn-ghost btn-xs gap-0.5 text-base-content/60">
+          すべて見る<span class="material-icons text-[15px]">chevron_right</span>
+        </button>
+      </div>
+
+      <div class="overflow-x-auto rounded border border-base-300">
+        <table class="table table-sm w-full bg-base-200">
+          <tbody>
+            <tr class="bg-primary/10 border-b border-base-300">
+              <td class="w-10 py-3 pl-3.5 pr-0">
+                <span class="badge badge-error badge-xs font-bold tracking-wide px-1.5">ON AIR</span>
+              </td>
+              <td class="text-xs text-base-content/60 whitespace-nowrap py-3 px-3">本日 21:00 〜 22:00</td>
+              <td class="font-medium text-sm py-3 px-3">#90「新時代の働き方とAI活用」</td>
+              <td class="text-xs text-base-content/40 whitespace-nowrap text-right py-3 pr-3.5">60分</td>
+            </tr>
+            <tr class="border-b border-base-300">
+              <td class="py-3 pl-3.5 pr-0"></td>
+              <td class="text-xs text-base-content/60 whitespace-nowrap py-3 px-3">明日 14:00 〜 15:00</td>
+              <td class="font-medium text-sm py-3 px-3">#91「GPTとエンジニアの未来」</td>
+              <td class="text-xs text-base-content/40 whitespace-nowrap text-right py-3 pr-3.5">55分</td>
+            </tr>
+            <tr>
+              <td class="py-3 pl-3.5 pr-0"></td>
+              <td class="text-xs text-base-content/60 whitespace-nowrap py-3 px-3">4/17 09:00 〜 10:00</td>
+              <td class="font-medium text-sm py-3 px-3">#92「クラウドコストの話」</td>
+              <td class="text-xs text-base-content/40 whitespace-nowrap text-right py-3 pr-3.5">50分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4. エピソード一覧 -->
+    <div class="px-7 pt-5 pb-6">
+      <div class="flex items-center justify-between mb-3.5">
+        <div class="flex items-center gap-1.5 text-sm font-bold">
+          <span class="material-icons text-[16px] text-primary">library_music</span>エピソード
+        </div>
+      </div>
+
+      <!-- 検索 + ソート -->
+      <div class="flex gap-2 mb-3.5">
+        <label class="input input-bordered input-sm flex items-center gap-2 flex-1 bg-base-200">
+          <span class="material-icons text-[17px] text-base-content/40">search</span>
+          <input type="text" placeholder="エピソードを検索" class="grow text-sm">
+        </label>
+        <select class="select select-bordered select-sm bg-base-200 text-sm w-auto">
+          <option>新しい順</option>
+          <option>古い順</option>
+          <option>再生時間順</option>
+        </select>
+      </div>
+
+      <!-- エピソードテーブル -->
+      <div class="overflow-x-auto rounded border border-base-300">
+        <table class="table table-sm w-full bg-base-200">
+          <tbody>
+            <tr class="hover border-b border-base-300 cursor-pointer">
+              <td class="w-14 pl-3 pr-0 py-3">
+                <div class="w-12 h-12 rounded bg-base-300 border border-base-300 flex items-center justify-center">
+                  <span class="material-icons text-[22px] text-base-content/40">mic</span>
+                </div>
+              </td>
+              <td class="py-3 px-3">
+                <div class="font-medium text-sm truncate max-w-xs">#92「クラウドコストの話」</div>
+                <div class="flex gap-2.5 text-xs text-base-content/50 mt-0.5">
+                  <span>2026-04-15</span><span>50:12</span>
+                </div>
+              </td>
+              <td class="text-xs text-base-content/40 whitespace-nowrap hidden sm:table-cell">50:12</td>
+              <td class="text-right pr-3 py-3">
+                <button class="btn btn-ghost btn-xs btn-square text-base-content/40 hover:text-primary">
+                  <span class="material-icons text-[28px]">play_circle</span>
+                </button>
+              </td>
+            </tr>
+            <tr class="hover border-b border-base-300 cursor-pointer">
+              <td class="w-14 pl-3 pr-0 py-3">
+                <div class="w-12 h-12 rounded bg-base-300 border border-base-300 flex items-center justify-center">
+                  <span class="material-icons text-[22px] text-base-content/40">mic</span>
+                </div>
+              </td>
+              <td class="py-3 px-3">
+                <div class="font-medium text-sm truncate max-w-xs">#91「GPTとエンジニアの未来」</div>
+                <div class="flex gap-2.5 text-xs text-base-content/50 mt-0.5">
+                  <span>2026-04-08</span><span>55:47</span>
+                </div>
+              </td>
+              <td class="text-xs text-base-content/40 whitespace-nowrap hidden sm:table-cell">55:47</td>
+              <td class="text-right pr-3 py-3">
+                <button class="btn btn-ghost btn-xs btn-square text-base-content/40 hover:text-primary">
+                  <span class="material-icons text-[28px]">play_circle</span>
+                </button>
+              </td>
+            </tr>
+            <tr class="hover border-b border-base-300 cursor-pointer">
+              <td class="w-14 pl-3 pr-0 py-3">
+                <div class="w-12 h-12 rounded bg-base-300 border border-base-300 flex items-center justify-center">
+                  <span class="material-icons text-[22px] text-base-content/40">mic</span>
+                </div>
+              </td>
+              <td class="py-3 px-3">
+                <div class="font-medium text-sm truncate max-w-xs">#90「新時代の働き方とAI活用」</div>
+                <div class="flex gap-2.5 text-xs text-base-content/50 mt-0.5">
+                  <span>2026-04-01</span><span>60:03</span>
+                </div>
+              </td>
+              <td class="text-xs text-base-content/40 whitespace-nowrap hidden sm:table-cell">60:03</td>
+              <td class="text-right pr-3 py-3">
+                <button class="btn btn-ghost btn-xs btn-square text-base-content/40 hover:text-primary">
+                  <span class="material-icons text-[28px]">play_circle</span>
+                </button>
+              </td>
+            </tr>
+            <tr class="hover border-b border-base-300 cursor-pointer">
+              <td class="w-14 pl-3 pr-0 py-3">
+                <div class="w-12 h-12 rounded bg-base-300 border border-base-300 flex items-center justify-center">
+                  <span class="material-icons text-[22px] text-base-content/40">mic</span>
+                </div>
+              </td>
+              <td class="py-3 px-3">
+                <div class="font-medium text-sm truncate max-w-xs">#89「Rustを本番に入れた話」</div>
+                <div class="flex gap-2.5 text-xs text-base-content/50 mt-0.5">
+                  <span>2026-03-25</span><span>48:30</span>
+                </div>
+              </td>
+              <td class="text-xs text-base-content/40 whitespace-nowrap hidden sm:table-cell">48:30</td>
+              <td class="text-right pr-3 py-3">
+                <button class="btn btn-ghost btn-xs btn-square text-base-content/40 hover:text-primary">
+                  <span class="material-icons text-[28px]">play_circle</span>
+                </button>
+              </td>
+            </tr>
+            <tr class="hover border-b border-base-300 cursor-pointer">
+              <td class="w-14 pl-3 pr-0 py-3">
+                <div class="w-12 h-12 rounded bg-base-300 border border-base-300 flex items-center justify-center">
+                  <span class="material-icons text-[22px] text-base-content/40">mic</span>
+                </div>
+              </td>
+              <td class="py-3 px-3">
+                <div class="font-medium text-sm truncate max-w-xs">#88「AI最新動向まとめ」</div>
+                <div class="flex gap-2.5 text-xs text-base-content/50 mt-0.5">
+                  <span>2026-03-18</span><span>52:15</span>
+                </div>
+              </td>
+              <td class="text-xs text-base-content/40 whitespace-nowrap hidden sm:table-cell">52:15</td>
+              <td class="text-right pr-3 py-3">
+                <button class="btn btn-ghost btn-xs btn-square text-base-content/40 hover:text-primary">
+                  <span class="material-icons text-[28px]">play_circle</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4" class="text-center py-3.5">
+                <button class="btn btn-ghost btn-sm gap-1">
+                  <span class="material-icons text-[18px]">expand_more</span>もっと見る（87件）
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- プレイヤーバー (fixed bottom) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 h-[72px] bg-base-200 border-t border-base-300 flex items-center px-4 gap-4">
+  <!-- アートワーク -->
+  <div class="w-[46px] h-[46px] flex-shrink-0 bg-primary text-primary-content rounded flex items-center justify-center text-[10px] font-bold text-center leading-tight">
+    TECH
+  </div>
+  <!-- 再生中情報 -->
+  <div class="w-[170px] flex-shrink-0 min-w-0">
+    <div class="text-sm font-bold truncate">#90「新時代の働き方とAI活用」</div>
+    <div class="text-xs text-base-content/50 truncate">テック雑談ラジオ</div>
+  </div>
+  <!-- コントロール -->
+  <div class="flex items-center gap-0.5">
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[22px] text-base-content/60">skip_previous</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[36px] text-primary">pause_circle</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[22px] text-base-content/60">skip_next</span>
+    </button>
+  </div>
+  <!-- 進捗バー -->
+  <div class="flex-1 flex items-center gap-2.5 min-w-0 hidden sm:flex">
+    <span class="text-xs text-base-content/50 whitespace-nowrap">21:14</span>
+    <progress class="progress progress-primary flex-1 h-1.5" value="35" max="100"></progress>
+    <span class="text-xs text-base-content/50 whitespace-nowrap">60:03</span>
+  </div>
+  <!-- ボリューム -->
+  <div class="flex items-center gap-1.5 w-24 flex-shrink-0">
+    <span class="material-icons text-[18px] text-base-content/50">volume_up</span>
+    <input type="range" min="0" max="100" value="80" class="range range-xs range-primary flex-1">
+  </div>
+</div>
+
+<!-- モバイル向けボトムナビ (pb上乗せ用、sm以上では非表示) -->
+<nav class="fixed bottom-[72px] left-0 right-0 z-40 bg-base-200 border-t border-base-300 h-[52px] flex md:hidden">
+  <a href="index.html" class="flex-1 flex flex-col items-center justify-center gap-0.5 text-base-content/50 text-[10px]">
+    <span class="material-icons text-[22px]">home</span>ホーム
+  </a>
+  <a href="live.html" class="flex-1 flex flex-col items-center justify-center gap-0.5 text-base-content/50 text-[10px]">
+    <span class="material-icons text-[22px]">radio</span>ライブ
+  </a>
+  <a href="schedule.html" class="flex-1 flex flex-col items-center justify-center gap-0.5 text-base-content/50 text-[10px]">
+    <span class="material-icons text-[22px]">calendar_month</span>番組表
+  </a>
+  <a href="program.html" class="flex-1 flex flex-col items-center justify-center gap-0.5 text-primary text-[10px]">
+    <span class="material-icons text-[22px]">search</span>さがす
+  </a>
+  <a href="dashboard.html" class="flex-1 flex flex-col items-center justify-center gap-0.5 text-base-content/50 text-[10px]">
+    <span class="material-icons text-[22px]">dashboard</span>マイ
+  </a>
+</nav>
+
+</body>
+</html>

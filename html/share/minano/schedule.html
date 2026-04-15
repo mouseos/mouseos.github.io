@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>番組表 — みんなの放送局</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { font-family: 'Noto Sans JP', sans-serif; }
+[data-theme="light"] {
+  --p: 47.07% 0.186 27.5;
+  --pf: 38% 0.186 27.5;
+  --pc: 100% 0 0;
+  --n: 15% 0 0;
+  --nf: 11% 0 0;
+  --nc: 100% 0 0;
+}
+
+/* Weekly EPG grid */
+.epg-wrap {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 56px - 72px - 52px - 44px); /* navbar + player + page-header + station-tabs */
+}
+.epg-grid {
+  display: grid;
+  grid-template-columns: 48px repeat(7, minmax(120px, 1fr));
+  border-left: 1px solid hsl(var(--b3));
+  border-top: 1px solid hsl(var(--b3));
+  min-width: 888px;
+}
+.epg-corner {
+  position: sticky; top: 0; left: 0; z-index: 20;
+  background: hsl(var(--b1));
+  border-right: 1px solid hsl(var(--b3));
+  border-bottom: 2px solid hsl(var(--b3));
+}
+.epg-day-head {
+  position: sticky; top: 0; z-index: 10;
+  padding: 6px 8px;
+  font-size: 12px; font-weight: 700;
+  background: hsl(var(--b2));
+  border-right: 1px solid hsl(var(--b3));
+  border-bottom: 2px solid hsl(var(--b3));
+  text-align: center;
+}
+.epg-day-head.today {
+  background: hsl(var(--p) / 0.08);
+  color: hsl(var(--p));
+  border-bottom-color: hsl(var(--p));
+}
+.epg-day-head .date-num { font-size: 18px; font-weight: 700; display: block; line-height: 1.2; }
+.epg-day-head .date-dow { font-size: 10px; font-weight: 500; }
+
+.epg-time {
+  position: sticky; left: 0; z-index: 10;
+  background: hsl(var(--b1));
+  border-right: 1px solid hsl(var(--b3));
+  border-bottom: 1px solid hsl(var(--b3));
+  padding: 4px 4px;
+  font-size: 10px; font-weight: 500;
+  color: hsl(var(--bc) / 0.4);
+  text-align: right;
+  display: flex; align-items: flex-start; justify-content: flex-end;
+}
+.epg-time.now {
+  color: hsl(var(--p));
+  font-weight: 700;
+  background: hsl(var(--p) / 0.05);
+}
+
+.epg-cell {
+  border-right: 1px solid hsl(var(--b3));
+  border-bottom: 1px solid hsl(var(--b3));
+  padding: 3px;
+  min-height: 60px;
+  background: hsl(var(--b2));
+}
+.epg-cell.today-col { background: hsl(var(--p) / 0.02); }
+.epg-cell.now-row { background: hsl(var(--p) / 0.04); }
+.epg-cell.today-col.now-row { background: hsl(var(--p) / 0.07); }
+
+.prog-pill {
+  border: 1px solid hsl(var(--b3));
+  border-radius: 3px;
+  padding: 4px 6px;
+  cursor: pointer;
+  height: 100%;
+  display: flex; flex-direction: column; gap: 2px;
+  background: hsl(var(--b2));
+  transition: border-color 0.12s;
+}
+.prog-pill:hover { border-color: hsl(var(--p)); }
+.prog-pill.on-air {
+  border-left: 3px solid hsl(var(--p));
+  background: hsl(var(--p) / 0.08);
+}
+.pp-time { font-size: 9px; color: hsl(var(--bc) / 0.4); }
+.pp-title {
+  font-size: 11px; font-weight: 500; line-height: 1.35;
+  overflow: hidden; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.pp-prog { font-size: 10px; color: hsl(var(--bc) / 0.55); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+</style>
+</head>
+<body class="min-h-screen bg-base-100">
+
+<!-- Navbar -->
+<div class="navbar fixed top-0 left-0 right-0 z-50 min-h-[56px] px-4 gap-2" style="background:#1c1c1c">
+  <button class="btn btn-ghost btn-sm btn-square">
+    <span class="material-icons text-white/75 text-[22px]">menu</span>
+  </button>
+  <a href="index.html" class="text-base font-bold text-white whitespace-nowrap mr-2">みんなの放送局</a>
+  <div class="flex-1 max-w-sm hidden md:flex">
+    <div class="flex items-center gap-2 rounded px-3 py-1.5 w-full" style="background:rgba(255,255,255,0.12)">
+      <span class="material-icons text-[18px]" style="color:rgba(255,255,255,0.6)">search</span>
+      <input type="text" placeholder="番組・エピソードを検索"
+        class="bg-transparent border-none outline-none text-sm text-white w-full font-[inherit]">
+    </div>
+  </div>
+  <div class="ml-auto flex items-center gap-1">
+    <a href="live.html" class="flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded mr-1 text-white" style="background:#c62828">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-white"></span>ON AIR
+    </a>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[22px]" style="color:rgba(255,255,255,0.75)">notifications_none</span>
+    </button>
+    <button class="btn btn-ghost btn-sm btn-square">
+      <span class="material-icons text-[30px]" style="color:rgba(255,255,255,0.75)">account_circle</span>
+    </button>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<aside class="hidden lg:block fixed top-[56px] left-0 bottom-[72px] w-60 bg-base-200 border-r border-base-300 z-40 overflow-y-auto">
+  <ul class="menu menu-sm p-2 gap-0.5">
+    <li><a href="index.html" class="flex items-center gap-3 py-2.5 font-medium"><span class="material-icons text-[20px]">home</span>ホーム</a></li>
+    <li><a href="live.html" class="flex items-center gap-3 py-2.5 font-medium"><span class="material-icons text-[20px]">radio</span>ライブ</a></li>
+    <li><a href="schedule.html" class="flex items-center gap-3 py-2.5 font-medium active"><span class="material-icons text-[20px]">calendar_month</span>番組表</a></li>
+    <li><a href="program.html" class="flex items-center gap-3 py-2.5 font-medium"><span class="material-icons text-[20px]">search</span>さがす</a></li>
+    <div class="divider my-1"></div>
+    <li><a href="dashboard.html" class="flex items-center gap-3 py-2.5 font-medium"><span class="material-icons text-[20px]">dashboard</span>ダッシュボード</a></li>
+    <li><a href="podcast-register.html" class="flex items-center gap-3 py-2.5 font-medium"><span class="material-icons text-[20px]">add_circle_outline</span>番組を登録</a></li>
+  </ul>
+</aside>
+
+<!-- Main -->
+<main class="lg:ml-60 pt-[56px] pb-[72px]">
+
+  <!-- Page header -->
+  <div class="sticky top-[56px] z-30 flex items-center justify-between flex-wrap gap-2 px-6 py-3 bg-base-200 border-b border-base-300">
+    <div class="flex items-center gap-2 font-bold text-base">
+      <span class="material-icons text-primary text-[18px]">calendar_month</span>番組表
+    </div>
+    <div class="flex items-center flex-wrap gap-2">
+      <button class="btn btn-sm btn-ghost gap-1"><span class="material-icons text-[16px]">chevron_left</span>先週</button>
+      <span class="text-sm font-bold">2026年4月13日（月）〜 4月19日（日）</span>
+      <button class="btn btn-sm btn-ghost gap-1">翌週<span class="material-icons text-[16px]">chevron_right</span></button>
+      <button class="btn btn-sm btn-outline btn-primary gap-1 ml-1"><span class="material-icons text-[14px]">today</span>今週</button>
+    </div>
+  </div>
+
+  <!-- Station tabs -->
+  <div class="sticky top-[108px] z-30 flex items-center gap-0 border-b border-base-300 bg-base-200 px-6 overflow-x-auto">
+    <!-- Active tab: Sapporo City FM -->
+    <button class="flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-primary border-b-2 border-primary bg-base-100 -mb-px">
+      <span class="material-icons text-[16px]">radio</span>
+      Sapporo City FM
+    </button>
+    <!-- Placeholder for future stations -->
+    <button class="flex items-center gap-1.5 px-4 py-2.5 text-sm text-base-content/40 hover:text-base-content/60 border-b-2 border-transparent -mb-px" disabled>
+      <span class="material-icons text-[16px]">add</span>
+      局を追加（準備中）
+    </button>
+  </div>
+
+  <!-- EPG: Sapporo City FM Weekly -->
+  <div class="epg-wrap">
+    <div class="epg-grid">
+
+      <!-- Header row -->
+      <div class="epg-corner"></div>
+      <div class="epg-day-head"><span class="date-dow">月</span><span class="date-num">13</span></div>
+      <div class="epg-day-head"><span class="date-dow">火</span><span class="date-num">14</span></div>
+      <div class="epg-day-head today"><span class="date-dow">水 ★</span><span class="date-num">15</span></div>
+      <div class="epg-day-head"><span class="date-dow">木</span><span class="date-num">16</span></div>
+      <div class="epg-day-head"><span class="date-dow">金</span><span class="date-num">17</span></div>
+      <div class="epg-day-head"><span class="date-dow">土</span><span class="date-num">18</span></div>
+      <div class="epg-day-head"><span class="date-dow">日</span><span class="date-num">19</span></div>
+
+      <!-- 00:00 -->
+      <div class="epg-time">00:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">00:00–01:00</span><span class="pp-title">朝の5分間英語 #195</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">00:00–01:30</span><span class="pp-title">テック雑談ラジオ #88</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">00:00–01:00</span><span class="pp-title">深夜のひとりごと ep.146</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">00:00–02:00</span><span class="pp-title">週末のゆるい話 ep.8</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">00:00–01:00</span><span class="pp-title">音楽と映画のあいだ #27</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">00:00–02:00</span><span class="pp-title">テック雑談ラジオ #91</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">00:00–01:30</span><span class="pp-title">朝の5分間英語 #200</span></div></div>
+
+      <!-- 01:00 -->
+      <div class="epg-time">01:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">01:00–02:30</span><span class="pp-title">深夜のひとりごと ep.140</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">01:00–02:00</span><span class="pp-title">テック雑談ラジオ #89</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">01:00–02:30</span><span class="pp-title">週末のゆるい話 ep.14</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+
+      <!-- 02:00 -->
+      <div class="epg-time">02:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">02:00–03:30</span><span class="pp-title">音楽と映画のあいだ #31</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">02:00–03:30</span><span class="pp-title">週末のゆるい話 ep.12</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">02:00–03:00</span><span class="pp-title">朝の5分間英語 #203</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">02:00–03:30</span><span class="pp-title">深夜のひとりごと ep.149</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">01:30–03:00</span><span class="pp-title">音楽と映画のあいだ #33</span></div></div>
+
+      <!-- 03:00 -->
+      <div class="epg-time">03:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">03:00–04:30</span><span class="pp-title">テック雑談ラジオ #84</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">03:30–04:30</span><span class="pp-title">音楽と映画のあいだ #30</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">03:00–04:00</span><span class="pp-title">深夜のひとりごと ep.148</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">03:00–04:30</span><span class="pp-title">朝の5分間英語 #205</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+
+      <!-- 04:00 -->
+      <div class="epg-time">04:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">04:00–05:30</span><span class="pp-title">週末のゆるい話 ep.10</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">04:30–05:30</span><span class="pp-title">朝の5分間英語 #201</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">04:00–05:00</span><span class="pp-title">テック雑談ラジオ #92</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">03:30–05:00</span><span class="pp-title">週末のゆるい話 ep.15</span></div></div>
+
+      <!-- 05:00 -->
+      <div class="epg-time">05:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">05:00–06:00</span><span class="pp-title">朝の5分間英語 #196</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">05:00–06:30</span><span class="pp-title">音楽と映画のあいだ #32</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">05:00–06:00</span><span class="pp-title">深夜のひとりごと ep.150</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+
+      <!-- 06:00 -->
+      <div class="epg-time">06:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">06:00–08:00</span><span class="pp-title">深夜のひとりごと ep.141</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">06:00–07:30</span><span class="pp-title">朝の5分間英語 #198</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">06:30–08:00</span><span class="pp-title">テック雑談ラジオ #88</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">06:00–08:00</span><span class="pp-title">音楽と映画のあいだ #34</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">06:00–07:00</span><span class="pp-title">朝の5分間英語 #201</span></div></div>
+
+      <!-- 07:00 -->
+      <div class="epg-time">07:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">07:00–08:30</span><span class="pp-title">テック雑談ラジオ #85</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">07:00–09:00</span><span class="pp-title">週末のゆるい話 ep.13</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">07:00–09:00</span><span class="pp-title">深夜のひとりごと ep.151</span></div></div>
+
+      <!-- 08:00 -->
+      <div class="epg-time">08:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">08:00–09:30</span><span class="pp-title">テック雑談ラジオ #86</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">08:00–09:00</span><span class="pp-title">朝の5分間英語 #200</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">08:00–10:00</span><span class="pp-title">テック雑談ラジオ #93</span></div></div>
+      <div class="epg-cell"></div>
+
+      <!-- 09:00 -->
+      <div class="epg-time">09:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">09:00–10:30</span><span class="pp-title">週末のゆるい話 ep.9</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">09:00–10:30</span><span class="pp-title">週末のゆるい話 ep.11</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">09:00–10:00</span><span class="pp-title">朝の5分間英語 #204</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">09:00–10:30</span><span class="pp-title">深夜のひとりごと ep.152</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">09:00–11:00</span><span class="pp-title">音楽と映画のあいだ #35</span></div></div>
+
+      <!-- 10:00 -->
+      <div class="epg-time">10:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">10:00–11:30</span><span class="pp-title">音楽と映画のあいだ #28</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">10:30–11:30</span><span class="pp-title">音楽と映画のあいだ #29</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">10:00–11:30</span><span class="pp-title">週末のゆるい話 ep.16</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+
+      <!-- 11:00 -->
+      <div class="epg-time">11:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">11:00–12:30</span><span class="pp-title">朝の5分間英語 #197</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">11:00–12:00</span><span class="pp-title">テック雑談ラジオ #86</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">11:00–12:30</span><span class="pp-title">深夜のひとりごと ep.153</span></div></div>
+      <div class="epg-cell"></div>
+
+      <!-- 12:00 -->
+      <div class="epg-time">12:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">12:00–13:30</span><span class="pp-title">テック雑談ラジオ #83</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">12:00–13:00</span><span class="pp-title">深夜のひとりごと ep.144</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">12:30–14:00</span><span class="pp-title">テック雑談ラジオ #87</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">12:00–13:30</span><span class="pp-title">朝の5分間英語 #206</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">12:00–13:00</span><span class="pp-title">週末のゆるい話 ep.17</span></div></div>
+
+      <!-- 13:00 -->
+      <div class="epg-time">13:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">13:00–14:30</span><span class="pp-title">週末のゆるい話 ep.11</span></div></div>
+      <div class="epg-cell today-col"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">13:00–14:30</span><span class="pp-title">音楽と映画のあいだ #36</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">13:00–14:00</span><span class="pp-title">テック雑談ラジオ #94</span></div></div>
+      <div class="epg-cell"></div>
+
+      <!-- 14:00 -->
+      <div class="epg-time">14:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">14:00–15:00</span><span class="pp-title">音楽と映画のあいだ #26</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">14:00–15:00</span><span class="pp-title">週末のゆるい話 ep.10</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">14:00–15:30</span><span class="pp-title">深夜のひとりごと ep.149</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">14:00–15:30</span><span class="pp-title">朝の5分間英語 #207</span></div></div>
+
+      <!-- 15:00 -->
+      <div class="epg-time">15:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">15:00–16:30</span><span class="pp-title">深夜のひとりごと ep.142</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">15:00–16:00</span><span class="pp-title">朝の5分間英語 #199</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">15:00–16:00</span><span class="pp-title">朝の5分間英語 #199</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">15:00–16:30</span><span class="pp-title">週末のゆるい話 ep.18</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">15:00–16:00</span><span class="pp-title">テック雑談ラジオ #95</span></div></div>
+      <div class="epg-cell"></div>
+
+      <!-- 16:00 -->
+      <div class="epg-time">16:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">16:00–17:30</span><span class="pp-title">テック雑談ラジオ #87</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">16:00–17:30</span><span class="pp-title">音楽と映画のあいだ #28</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">16:00–17:00</span><span class="pp-title">テック雑談ラジオ #88</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">16:00–17:30</span><span class="pp-title">深夜のひとりごと ep.154</span></div></div>
+
+      <!-- 17:00 -->
+      <div class="epg-time">17:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">17:00–18:30</span><span class="pp-title">テック雑談ラジオ #84</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">17:30–18:30</span><span class="pp-title">深夜のひとりごと ep.143</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">17:00–18:30</span><span class="pp-title">音楽と映画のあいだ #37</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">17:00–18:00</span><span class="pp-title">朝の5分間英語 #208</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+
+      <!-- 18:00 -->
+      <div class="epg-time">18:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">18:00–19:30</span><span class="pp-title">音楽と映画のあいだ #29</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">18:30–20:00</span><span class="pp-title">テック雑談ラジオ #86</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">18:00–19:30</span><span class="pp-title">週末のゆるい話 ep.19</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">18:00–19:30</span><span class="pp-title">テック雑談ラジオ #96</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">18:00–19:00</span><span class="pp-title">朝の5分間英語 #209</span></div></div>
+
+      <!-- 19:00 -->
+      <div class="epg-time">19:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">19:00–20:00</span><span class="pp-title">朝の5分間英語 #198</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">19:00–20:30</span><span class="pp-title">朝の5分間英語 #205</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">19:00–20:30</span><span class="pp-title">深夜のひとりごと ep.155</span></div></div>
+
+      <!-- 20:00 -->
+      <div class="epg-time">20:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">20:00–21:30</span><span class="pp-title">深夜のひとりごと ep.143</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">20:00–21:30</span><span class="pp-title">週末のゆるい話 ep.12</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">20:00–21:00</span><span class="pp-title">週末のゆるい話 ep.9</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">20:00–21:30</span><span class="pp-title">音楽と映画のあいだ #38</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+
+      <!-- 21:00 — ON AIR (today only) -->
+      <div class="epg-time now">21:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">21:00–22:30</span><span class="pp-title">テック雑談ラジオ #85</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">21:00–22:00</span><span class="pp-title">朝の5分間英語 #200</span></div></div>
+      <div class="epg-cell today-col now-row">
+        <div class="prog-pill on-air">
+          <span class="pp-time">21:00–22:00</span>
+          <span class="pp-title">深夜のひとりごと ep.147「眠れない夜の哲学トーク」</span>
+          <span class="badge badge-error badge-xs mt-0.5">ON AIR</span>
+        </div>
+      </div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">21:00–22:30</span><span class="pp-title">深夜のひとりごと ep.150</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">21:00–22:00</span><span class="pp-title">テック雑談ラジオ #90</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">21:00–23:00</span><span class="pp-title">週末のゆるい話 ep.20「週末振り返り」</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">21:00–22:00</span><span class="pp-title">音楽と映画のあいだ #39</span></div></div>
+
+      <!-- 22:00 -->
+      <div class="epg-time">22:00</div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">22:00–23:30</span><span class="pp-title">深夜のひとりごと ep.145</span></div></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">22:00–23:30</span><span class="pp-title">テック雑談ラジオ #90</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">22:00–23:00</span><span class="pp-title">朝の5分間英語 #207</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">22:00–23:30</span><span class="pp-title">音楽と映画のあいだ #39</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">22:00–23:00</span><span class="pp-title">テック雑談ラジオ #97</span></div></div>
+
+      <!-- 23:00 -->
+      <div class="epg-time">23:00</div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">23:00–00:00</span><span class="pp-title">音楽と映画のあいだ #25</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell today-col"><div class="prog-pill"><span class="pp-time">23:30–00:00</span><span class="pp-title">朝の5分間英語 #202</span></div></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">23:00–00:00</span><span class="pp-title">週末のゆるい話 ep.21</span></div></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"></div>
+      <div class="epg-cell"><div class="prog-pill"><span class="pp-time">23:00–00:00</span><span class="pp-title">深夜のひとりごと ep.156</span></div></div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- Player bar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 h-[72px] bg-base-200 border-t border-base-300 flex items-center px-4 gap-4">
+  <div class="w-[46px] h-[46px] rounded bg-primary text-primary-content flex items-center justify-center text-[10px] font-bold text-center leading-tight flex-shrink-0">SCFM</div>
+  <div class="w-[170px] min-w-0 flex-shrink-0">
+    <div class="text-sm font-bold truncate">深夜のひとりごと ep.147</div>
+    <div class="text-xs text-base-content/60 truncate">Sapporo City FM</div>
+  </div>
+  <div class="flex items-center gap-0.5">
+    <button class="btn btn-ghost btn-sm btn-square"><span class="material-icons text-[22px]">skip_previous</span></button>
+    <button class="btn btn-ghost btn-sm btn-square"><span class="material-icons text-primary text-[36px]">pause_circle</span></button>
+    <button class="btn btn-ghost btn-sm btn-square"><span class="material-icons text-[22px]">skip_next</span></button>
+  </div>
+  <div class="flex-1 flex items-center gap-3">
+    <span class="badge badge-error badge-sm font-bold tracking-wide">LIVE</span>
+  </div>
+  <div class="flex items-center gap-2 w-[110px]">
+    <span class="material-icons text-base-content/60 text-[18px]">volume_up</span>
+    <input type="range" min="0" max="100" value="80" class="range range-xs range-primary flex-1">
+  </div>
+</div>
+
+</body>
+</html>
