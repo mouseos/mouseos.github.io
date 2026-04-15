@@ -55,7 +55,7 @@
 
 <!-- ===== NAVBAR ===== -->
 <div class="navbar fixed top-0 left-0 right-0 z-50 min-h-[56px] px-4 gap-2" style="background:#1c1c1c">
-  <button class="btn btn-ghost btn-sm btn-square">
+  <button class="btn btn-ghost btn-sm btn-square" onclick="toggleSidebar()">
     <span class="material-icons text-white/75 text-[22px]">menu</span>
   </button>
   <a href="index.html" class="text-base font-bold text-white whitespace-nowrap mr-2">みんなの放送局</a>
@@ -80,11 +80,13 @@
   </div>
 </div>
 
+<div id="sidebar-overlay" class="hidden fixed inset-0 z-30 bg-black/40 lg:hidden" onclick="closeSidebar()"></div>
+
 <!-- ===== LAYOUT ===== -->
 <div class="flex" style="padding-top: 64px; padding-bottom: var(--player-h);">
 
   <!-- ===== SIDEBAR ===== -->
-  <nav class="sidebar hidden lg:block fixed top-[64px] left-0 z-40 overflow-y-auto bg-base-200 border-r border-base-300"
+  <nav id="sidebar" class="sidebar hidden lg:block fixed top-[64px] left-0 z-40 overflow-y-auto bg-base-200 border-r border-base-300"
     style="bottom: var(--player-h); width: var(--sidebar-w);">
     <ul class="menu p-0 gap-0 w-full">
       <li>
@@ -359,5 +361,26 @@
   </div>
 </div>
 
+<script>
+function toggleSidebar() {
+  const s = document.getElementById('sidebar');
+  const o = document.getElementById('sidebar-overlay');
+  const isHidden = s.classList.contains('hidden');
+  if (isHidden) {
+    s.classList.remove('hidden');
+    o.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  } else {
+    closeSidebar();
+  }
+}
+function closeSidebar() {
+  const s = document.getElementById('sidebar');
+  const o = document.getElementById('sidebar-overlay');
+  s.classList.add('hidden');
+  o.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+</script>
 </body>
 </html>
